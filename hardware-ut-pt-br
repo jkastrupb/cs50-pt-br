@@ -1,0 +1,6001 @@
+Hardware - Understanding Technology - by CS50 at Harvard
+
+1
+00:00:00,000 --> 00:00:02,430
+[MUSIC PLAYING]
+
+2
+00:00:02,430 --> 00:00:09,261
+
+
+3
+00:00:09,261 --> 00:00:11,760
+DAVID J. MALAN: É provável que você use um computador todos os dias
+
+4
+00:00:11,760 --> 00:00:15,010
+Mas o que está  acontecendo dentro deste laptop ou deste desktop?
+
+5
+00:00:15,010 --> 00:00:17,676
+Bem, dentro de um computador estão todos esses 0s e 1s.
+
+6
+00:00:17,676 --> 00:00:19,800
+E você pode ter ouvido falar mesmo que computadores só 
+
+7
+00:00:19,800 --> 00:00:23,280
+entendem 0s e 1s, ou seja, o sistema binário.
+
+8
+00:00:23,280 --> 00:00:25,620
+Mas, se computadores hoje podem fazer tanta coisa, como eles  if computers today
+can do so much, how can
+
+9
+00:00:25,620 --> 00:00:28,920
+fazem tudo isso se eles só sabem "falar" 0s e 1s e não 
+
+10
+00:00:28,920 --> 00:00:31,230
+todo o alfabeto inteiro que nós humanos temos.
+
+11
+00:00:31,230 --> 00:00:33,000
+Well, consider this.
+
+12
+00:00:33,000 --> 00:00:37,130
+Back in our human world, you might
+recognize a pattern of symbols
+
+13
+00:00:37,130 --> 00:00:40,590
+like this as the number 123.
+
+14
+00:00:40,590 --> 00:00:41,460
+But why is that?
+
+15
+00:00:41,460 --> 00:00:44,670
+After all, all I did was draw
+three shapes, really, three glyphs,
+
+16
+00:00:44,670 --> 00:00:47,160
+or three symbols or
+digits on the screen.
+
+17
+00:00:47,160 --> 00:00:50,130
+But each of these digits
+has some predefined meaning.
+
+18
+00:00:50,130 --> 00:00:53,850
+If, in fact, if you went to grade school
+like I did and you learned numbers
+
+19
+00:00:53,850 --> 00:00:56,610
+in this way, odds are, you might
+recall, that this rightmost
+
+20
+00:00:56,610 --> 00:00:59,940
+column is the so-called
+one's column or one's place.
+
+21
+00:00:59,940 --> 00:01:01,590
+Then this is the ten's place.
+
+22
+00:01:01,590 --> 00:01:03,510
+And then this is the hundred's place.
+
+23
+00:01:03,510 --> 00:01:05,349
+Now why is that significant?
+
+24
+00:01:05,349 --> 00:01:09,060
+Well, the reason that 1, 2,
+3-- that pattern represents
+
+25
+00:01:09,060 --> 00:01:11,970
+the number we humans know
+is 123 is that there's
+
+26
+00:01:11,970 --> 00:01:13,830
+a bit of arithmetic going on here.
+
+27
+00:01:13,830 --> 00:01:19,770
+This, after all, means that you
+should do 100 times 1 plus 10 times
+
+28
+00:01:19,770 --> 00:01:23,280
+2 plus 1 times 3.
+
+29
+00:01:23,280 --> 00:01:30,930
+That, of course, gives us
+100 plus 20 plus 3 or 123.
+
+30
+00:01:30,930 --> 00:01:33,540
+In other words, there's a
+pattern to these digits,
+
+31
+00:01:33,540 --> 00:01:36,000
+and there's a meaning
+behind each of their places.
+
+32
+00:01:36,000 --> 00:01:39,930
+Well, it turns out that computers
+only, indeed, understand 0s and 1s.
+
+33
+00:01:39,930 --> 00:01:43,920
+They can't count as high as 2 and 3
+and 4 in the same way we humans can.
+
+34
+00:01:43,920 --> 00:01:47,080
+But they use those 0s and
+1s in exactly the same way.
+
+35
+00:01:47,080 --> 00:01:48,640
+In fact, consider this.
+
+36
+00:01:48,640 --> 00:01:54,292
+If we consider this pattern 0,
+0, 0, to be inside of a computer,
+
+37
+00:01:54,292 --> 00:01:56,250
+and that's what the
+computer is thinking, well,
+
+38
+00:01:56,250 --> 00:01:57,610
+what number might this be.
+
+39
+00:01:57,610 --> 00:01:59,360
+Well, the spoiler is
+that this is actually
+
+40
+00:01:59,360 --> 00:02:02,760
+going to represent just 0, thankfully,
+just like in our human world.
+
+41
+00:02:02,760 --> 00:02:03,910
+But why is that the case?
+
+42
+00:02:03,910 --> 00:02:06,030
+And how can we count higher than 0?
+
+43
+00:02:06,030 --> 00:02:09,030
+Well, in the computer world,
+realize that these places are just
+
+44
+00:02:09,030 --> 00:02:09,870
+a little different.
+
+45
+00:02:09,870 --> 00:02:11,869
+This is still the one's
+place, but this next one
+
+46
+00:02:11,869 --> 00:02:13,440
+is not the ten's place anymore.
+
+47
+00:02:13,440 --> 00:02:15,239
+It's, instead, the two's place.
+
+48
+00:02:15,239 --> 00:02:17,530
+And this next place is not
+the hundred's place anymore.
+
+49
+00:02:17,530 --> 00:02:20,412
+It's, instead, the four's place.
+
+50
+00:02:20,412 --> 00:02:22,620
+And if you think about this,
+there's still a pattern.
+
+51
+00:02:22,620 --> 00:02:26,370
+Previously, it was 1, 10, 100,
+and then if we kept going,
+
+52
+00:02:26,370 --> 00:02:29,855
+1,000, 10,000 100,000, and so forth.
+
+53
+00:02:29,855 --> 00:02:31,230
+And here, too, there's a pattern.
+
+54
+00:02:31,230 --> 00:02:34,210
+1, 2, 4-- and if I kept going--
+
+55
+00:02:34,210 --> 00:02:36,540
+8, 16, and 32.
+
+56
+00:02:36,540 --> 00:02:39,930
+And so, in our human world,
+we tend to use powers of 10.
+
+57
+00:02:39,930 --> 00:02:45,810
+10 to 0 is 1, 10 to the 1
+is 10, 10 to the 2 is 100.
+
+58
+00:02:45,810 --> 00:02:51,510
+And in the computer world, this
+is 2 to the 0, which is 1, 2 to 1,
+
+59
+00:02:51,510 --> 00:02:54,780
+which is 2, 2 to the 2,
+or 2 squared, which is 4.
+
+60
+00:02:54,780 --> 00:02:57,820
+2 to 3 would be 8 and so forth.
+
+61
+00:02:57,820 --> 00:03:01,050
+So all we're doing is changing the
+base that we're using, so to speak.
+
+62
+00:03:01,050 --> 00:03:03,930
+Instead of powers of 10,
+we're using powers of 2.
+
+63
+00:03:03,930 --> 00:03:09,460
+And so why is this number 0, 0, 0 the
+number we humans know as 0 itself?
+
+64
+00:03:09,460 --> 00:03:15,870
+Well, again, if we just do the math, 4
+times 0 plus 2 times 0 plus 1 times 0
+
+65
+00:03:15,870 --> 00:03:22,050
+is, of course, 0 plus 0 plus 0 or
+the number we humans know as just 0.
+
+66
+00:03:22,050 --> 00:03:24,420
+Well, what if we do
+another number altogether?
+
+67
+00:03:24,420 --> 00:03:27,817
+Suppose we do this pattern 0, 0, 1.
+
+68
+00:03:27,817 --> 00:03:29,400
+Well, what number does this represent?
+
+69
+00:03:29,400 --> 00:03:31,120
+Well, if you consider the same columns--
+
+70
+00:03:31,120 --> 00:03:33,030
+1, 2, and 4--
+
+71
+00:03:33,030 --> 00:03:38,490
+this means we have four times 0, which
+is 0, 2 times 0, which is 0, 1 times
+
+72
+00:03:38,490 --> 00:03:40,180
+1, which is 1.
+
+73
+00:03:40,180 --> 00:03:42,880
+So this is the number
+we humans know as 1.
+
+74
+00:03:42,880 --> 00:03:43,380
+All right.
+
+75
+00:03:43,380 --> 00:03:47,280
+So not all that interesting yet,
+but what about the number 2?
+
+76
+00:03:47,280 --> 00:03:54,190
+How, in binary, bi meaning two, and the
+2 being a 0 and a 1, how, in binary,
+
+77
+00:03:54,190 --> 00:03:56,480
+can I now count as high as 2?
+
+78
+00:03:56,480 --> 00:03:59,260
+Well, if this is my one's
+place, this is my two's place,
+
+79
+00:03:59,260 --> 00:04:04,060
+and this is my four's place, what digits
+do I want to put below those places
+
+80
+00:04:04,060 --> 00:04:07,840
+if the only digits I have at my
+disposal now are not 0 through 9,
+
+81
+00:04:07,840 --> 00:04:09,940
+but just 0 through 1?
+
+82
+00:04:09,940 --> 00:04:12,841
+Well, I don't need a 4,
+so I can make that a 0.
+
+83
+00:04:12,841 --> 00:04:15,340
+I do need 2 if I want to count
+to the number we know as two,
+
+84
+00:04:15,340 --> 00:04:16,589
+so I'm going to put a 1 there.
+
+85
+00:04:16,589 --> 00:04:19,389
+And I don't need an extra 1
+because an extra 1 would give me 3.
+
+86
+00:04:19,390 --> 00:04:20,810
+So I'm going to do this.
+
+87
+00:04:20,810 --> 00:04:23,650
+And so a computer, to
+store the number we humans
+
+88
+00:04:23,650 --> 00:04:28,540
+know as two in decimal which
+store it in binary as 0, 1, 0.
+
+89
+00:04:28,540 --> 00:04:32,800
+Because that's 4 times 0 plus
+2 times 1 plus time 1 times 0,
+
+90
+00:04:32,800 --> 00:04:35,380
+which, of course, is going
+to give me the number 2.
+
+91
+00:04:35,380 --> 00:04:36,195
+What about 3?
+
+92
+00:04:36,195 --> 00:04:38,050
+Well, in the world of
+computers, if we again
+
+93
+00:04:38,050 --> 00:04:40,210
+have our one's place two's
+place and four's place,
+
+94
+00:04:40,210 --> 00:04:43,966
+how do I now arrange my zeros and ones
+to give me the number we know as 3?
+
+95
+00:04:43,966 --> 00:04:45,340
+Well, let's see I don't need a 4.
+
+96
+00:04:45,340 --> 00:04:46,256
+That would be too big.
+
+97
+00:04:46,256 --> 00:04:48,340
+I do need a 2, and I do need a 1.
+
+98
+00:04:48,340 --> 00:04:49,900
+And that is now going to give me 3.
+
+99
+00:04:49,900 --> 00:04:56,110
+Because 2 times 1, 1 times 1 is
+2, 1 times 1 is 1, 2 plus 1 is 3.
+
+100
+00:04:56,110 --> 00:04:57,399
+Now what about 4?
+
+101
+00:04:57,399 --> 00:04:58,690
+How do I count as high as four?
+
+102
+00:04:58,690 --> 00:05:02,630
+Well, it's even easier, perhaps because
+we just need a single 1 in this case.
+
+103
+00:05:02,630 --> 00:05:05,016
+We just need 1, 0, 0.
+
+104
+00:05:05,016 --> 00:05:06,890
+Because now I have one
+1 in the four's place.
+
+105
+00:05:06,890 --> 00:05:07,960
+And now let's skip ahead.
+
+106
+00:05:07,960 --> 00:05:13,450
+Suppose I want to count up
+as high as, let's say, 7?
+
+107
+00:05:13,450 --> 00:05:14,780
+What do I do?
+
+108
+00:05:14,780 --> 00:05:17,280
+Well, 7, let me take a byte out of that.
+
+109
+00:05:17,280 --> 00:05:18,490
+So this gives me 4.
+
+110
+00:05:18,490 --> 00:05:21,040
+Let me take a two, that
+gives me 4 plus 2, that's 6.
+
+111
+00:05:21,040 --> 00:05:22,930
+Let me give myself another 1.
+
+112
+00:05:22,930 --> 00:05:27,160
+1, 1, 1, in binary, equals 7.
+
+113
+00:05:27,160 --> 00:05:28,990
+Now what about a number like 8?
+
+114
+00:05:28,990 --> 00:05:33,810
+I can't seem to count as high as 8
+unless I give myself another bit.
+
+115
+00:05:33,810 --> 00:05:36,190
+But that's OK because,
+just as in the human world,
+
+116
+00:05:36,190 --> 00:05:38,773
+if you have not a three-digit
+number, but a four-digit number,
+
+117
+00:05:38,773 --> 00:05:40,000
+you simply add another place.
+
+118
+00:05:40,000 --> 00:05:43,456
+So it might be the ones column, the
+tens, the hundreds, the thousands.
+
+119
+00:05:43,456 --> 00:05:46,330
+In this case, though, it's going to
+be the ones, the twos, the fours,
+
+120
+00:05:46,330 --> 00:05:47,020
+and the eights.
+
+121
+00:05:47,020 --> 00:05:49,150
+And so if we want to count
+as high as 8 in binary,
+
+122
+00:05:49,150 --> 00:05:54,160
+we might do 1, 0, 0, 0, which,
+of course, gives me 8 times 1.
+
+123
+00:05:54,160 --> 00:05:55,750
+And then everything else is 0.
+
+124
+00:05:55,750 --> 00:05:58,220
+So that gives me the number 8.
+
+125
+00:05:58,220 --> 00:06:01,780
+So even though computers
+only speak 0s and 1s
+
+126
+00:06:01,780 --> 00:06:03,880
+and only understand the
+so-called binary system,
+
+127
+00:06:03,880 --> 00:06:06,760
+they can still count as
+high as we humans can.
+
+128
+00:06:06,760 --> 00:06:10,630
+And they fundamentally do
+it, really, in the same way.
+
+129
+00:06:10,630 --> 00:06:13,510
+It's just that they have
+a smaller vocabulary.
+
+130
+00:06:13,510 --> 00:06:15,600
+But why do they have
+a smaller vocabulary,
+
+131
+00:06:15,600 --> 00:06:17,100
+especially when they can do so much?
+
+132
+00:06:17,100 --> 00:06:19,450
+Well, it turns out that,
+in the physical world,
+
+133
+00:06:19,450 --> 00:06:22,701
+it's just convenient to be able to
+represent only two states instead
+
+134
+00:06:22,701 --> 00:06:23,200
+of 10.
+
+135
+00:06:23,200 --> 00:06:25,630
+And by states, I mean
+digits, in this case.
+
+136
+00:06:25,630 --> 00:06:27,670
+It's a lot easier in
+the human world, not
+
+137
+00:06:27,670 --> 00:06:31,450
+to represent 10 possible
+values 0 or 9, but just two--
+
+138
+00:06:31,450 --> 00:06:32,375
+0 and 1.
+
+139
+00:06:32,375 --> 00:06:34,750
+And we could have called those
+digits anything we wanted,
+
+140
+00:06:34,750 --> 00:06:36,999
+but we humans just standardized
+our numbers like that.
+
+141
+00:06:36,999 --> 00:06:43,420
+But 0 and 1 is nice because if you think
+of one of these binary digits or bits
+
+142
+00:06:43,420 --> 00:06:46,390
+as just being a light bulb--
+it's either off or on.
+
+143
+00:06:46,390 --> 00:06:49,380
+You can think of a 0 as
+a light bulb being off
+
+144
+00:06:49,380 --> 00:06:52,270
+and a one as being a
+light bulb being on.
+
+145
+00:06:52,270 --> 00:06:55,750
+And light bulbs, of course, in our human
+world just need electricity to run.
+
+146
+00:06:55,750 --> 00:06:59,320
+And so, if we somehow get electricity
+into our computer laptop, desktop,
+
+147
+00:06:59,320 --> 00:07:03,500
+or whatnot coming from the power
+outlet in the wall or some battery,
+
+148
+00:07:03,500 --> 00:07:06,310
+well, that would seem to be
+sufficient input in order
+
+149
+00:07:06,310 --> 00:07:11,260
+to turn a light bulb on or off, to
+turn a switch, really, on or off.
+
+150
+00:07:11,260 --> 00:07:14,770
+And indeed, that's what's inside
+of our computers-- transistors,
+
+151
+00:07:14,770 --> 00:07:16,060
+otherwise known as switches.
+
+152
+00:07:16,060 --> 00:07:19,270
+And these transistors, which now
+number in the billions in the most
+
+153
+00:07:19,270 --> 00:07:22,720
+modern of computers are tiny,
+tiny, tiny little light switches,
+
+154
+00:07:22,720 --> 00:07:28,810
+if you will, that, if turned on,
+allow us to store 1s, if turned off,
+
+155
+00:07:28,810 --> 00:07:31,030
+allow us to store 0s.
+
+156
+00:07:31,030 --> 00:07:33,760
+And using those many,
+many, many transistors,
+
+157
+00:07:33,760 --> 00:07:37,270
+can we store values, can we
+store data, can we compute,
+
+158
+00:07:37,270 --> 00:07:41,380
+and can we actually do everything we
+can today with our modern computers.
+
+159
+00:07:41,380 --> 00:07:45,970
+Let's make this more real and
+try out some actual light bulbs.
+
+160
+00:07:45,970 --> 00:07:48,880
+So here are some light bulbs
+clamped into these desk lamps.
+
+161
+00:07:48,880 --> 00:07:51,520
+And suppose now that I
+have these light bulbs here
+
+162
+00:07:51,520 --> 00:07:53,530
+to represent bits or binary digits.
+
+163
+00:07:53,530 --> 00:07:56,710
+So each of these light bulbs
+can represent a 0 if it's off
+
+164
+00:07:56,710 --> 00:07:58,310
+or a 1 if it's on.
+
+165
+00:07:58,310 --> 00:08:00,880
+And if we think about the same
+system that computers use,
+
+166
+00:08:00,880 --> 00:08:04,330
+let's think of this bulb here as
+being the one's place, this bulb here
+
+167
+00:08:04,330 --> 00:08:08,260
+as being the two's place and this
+bulb here as being the four's place.
+
+168
+00:08:08,260 --> 00:08:10,300
+So what number am I
+currently representing
+
+169
+00:08:10,300 --> 00:08:12,520
+if all of these light bulbs are off?
+
+170
+00:08:12,520 --> 00:08:14,575
+Well, that's like having 0, 0, 0.
+
+171
+00:08:14,575 --> 00:08:17,950
+Since they're all off, so that's the
+number we humans know in decimal,
+
+172
+00:08:17,950 --> 00:08:20,440
+dec meaning 10, as 0.
+
+173
+00:08:20,440 --> 00:08:23,539
+What about if I turn on just
+this one light bulb here?
+
+174
+00:08:23,539 --> 00:08:24,580
+What does that represent?
+
+175
+00:08:24,580 --> 00:08:27,930
+This, again, is the one's place, the
+two's place, and the four's place.
+
+176
+00:08:27,930 --> 00:08:30,820
+So this, of course, represents
+the number we know as 1.
+
+177
+00:08:30,820 --> 00:08:34,720
+Now, if I go ahead and
+simultaneously switch these,
+
+178
+00:08:34,720 --> 00:08:37,799
+this is still the one's place, the
+two's place, and the four's place.
+
+179
+00:08:37,799 --> 00:08:38,634
+So what is this?
+
+180
+00:08:38,634 --> 00:08:40,960
+This, now, is the number we know as 2.
+
+181
+00:08:40,960 --> 00:08:42,610
+How do I count as high as 3?
+
+182
+00:08:42,610 --> 00:08:44,470
+I don't want to keep
+going down the line.
+
+183
+00:08:44,470 --> 00:08:49,960
+Instead, I want to turn this 1 back on
+because that means I get a 1 plus a 2.
+
+184
+00:08:49,960 --> 00:08:54,180
+I don't need the 4, which is
+great, because now I have 3.
+
+185
+00:08:54,180 --> 00:08:55,350
+How do I get to 4 then?
+
+186
+00:08:55,350 --> 00:08:59,250
+Well, let me turn both of these off,
+turn this one on, and now, of course,
+
+187
+00:08:59,250 --> 00:09:00,420
+this is the four's place.
+
+188
+00:09:00,420 --> 00:09:01,620
+So this is a 4.
+
+189
+00:09:01,620 --> 00:09:05,250
+If I turn this one back on, now we're
+up to a four's place and a one's place,
+
+190
+00:09:05,250 --> 00:09:06,630
+so that gives me 5.
+
+191
+00:09:06,630 --> 00:09:12,420
+If I turn this off, this on, that
+gives me a 4 plus a 2, or a 6.
+
+192
+00:09:12,420 --> 00:09:16,260
+And finally, if that
+turns on, I have now a 7.
+
+193
+00:09:16,260 --> 00:09:18,540
+Unfortunately, I can't
+count as high as 8
+
+194
+00:09:18,540 --> 00:09:20,790
+unless I go get myself
+another desk lamp,
+
+195
+00:09:20,790 --> 00:09:23,416
+but for that we just need another bit.
+
+196
+00:09:23,416 --> 00:09:27,330
+But this is all very fine and good, but
+all I can represent thus far, it seems,
+
+197
+00:09:27,330 --> 00:09:29,010
+are numbers.
+
+198
+00:09:29,010 --> 00:09:33,240
+How, though, do I represent letters
+of the actual alphabet, A through Z?
+
+199
+00:09:33,240 --> 00:09:35,820
+How do I represent
+words or paragraphs, let
+
+200
+00:09:35,820 --> 00:09:39,529
+alone emails, and any number of other
+features that computers today support?
+
+201
+00:09:39,529 --> 00:09:41,820
+Well, for that, we're going
+to need to make a decision.
+
+202
+00:09:41,820 --> 00:09:44,250
+We're going to need to
+decide what patterns of bits
+
+203
+00:09:44,250 --> 00:09:48,990
+to use to represent those higher
+level notions like letters
+
+204
+00:09:48,990 --> 00:09:50,610
+words and paragraphs.
+
+205
+00:09:50,610 --> 00:09:52,050
+So for that, I've got an idea.
+
+206
+00:09:52,050 --> 00:09:55,650
+
+
+207
+00:09:55,650 --> 00:09:59,972
+So at the end of the day, all computers
+can store is, indeed, 0s and 1s.
+
+208
+00:09:59,972 --> 00:10:01,680
+And from those zeros
+and ones, of course,
+
+209
+00:10:01,680 --> 00:10:05,950
+can we count higher so long as we have
+a mapping from binary to the numbers
+
+210
+00:10:05,950 --> 00:10:06,900
+we know as decimal.
+
+211
+00:10:06,900 --> 00:10:08,990
+But, of course, we want
+our computers to do more.
+
+212
+00:10:08,990 --> 00:10:12,656
+We want to be able to express
+words and even other types of data.
+
+213
+00:10:12,656 --> 00:10:13,530
+So how do we do that?
+
+214
+00:10:13,530 --> 00:10:16,950
+Well, we need to come up with
+a standardization, a mapping,
+
+215
+00:10:16,950 --> 00:10:20,610
+from 0s and 1s, or really just
+numbers, to the letters that we want.
+
+216
+00:10:20,610 --> 00:10:24,394
+And it turns out, that some years ago
+what humans decided to do was this.
+
+217
+00:10:24,394 --> 00:10:26,810
+Now, at first glance, this
+might be a little overwhelming.
+
+218
+00:10:26,810 --> 00:10:29,505
+This is just a screenshot of
+a chart from asciichart.com.
+
+219
+00:10:29,505 --> 00:10:34,260
+An ASCII chart is a chart of ASCII
+characters, American Standard
+
+220
+00:10:34,260 --> 00:10:36,270
+Code for Information Interchange.
+
+221
+00:10:36,270 --> 00:10:40,410
+And this is simply a mapping
+from decimal numbers to letters.
+
+222
+00:10:40,410 --> 00:10:42,150
+And so on let's notice a few of these.
+
+223
+00:10:42,150 --> 00:10:48,690
+Notice here that 65 apparently maps
+to A, 66 maps to B, 67 maps to C,
+
+224
+00:10:48,690 --> 00:10:49,410
+and so forth.
+
+225
+00:10:49,410 --> 00:10:55,320
+Meanwhile, 97 maps to lowercase a,
+98 to lowercase b, 99 to lowercase c,
+
+226
+00:10:55,320 --> 00:10:56,140
+and so forth.
+
+227
+00:10:56,140 --> 00:10:58,590
+And there's also mappings
+from punctuation symbols
+
+228
+00:10:58,590 --> 00:11:02,160
+to all the letters of the
+alphabet that you may know.
+
+229
+00:11:02,160 --> 00:11:04,180
+So why is this significant?
+
+230
+00:11:04,180 --> 00:11:08,180
+Well, it turns out that even though
+computers only store 0s and 1s,
+
+231
+00:11:08,180 --> 00:11:09,930
+we, of course, use
+them in different ways.
+
+232
+00:11:09,930 --> 00:11:13,860
+We have programs like Notepad
+on PCs, or TextEdit on Mac OS,
+
+233
+00:11:13,860 --> 00:11:17,640
+or Microsoft Word on both platforms,
+or Google spreadsheets, or Google Docs,
+
+234
+00:11:17,640 --> 00:11:18,370
+or the like.
+
+235
+00:11:18,370 --> 00:11:20,161
+And so we have all
+these different programs
+
+236
+00:11:20,161 --> 00:11:22,960
+that is designed to do
+one thing or the other.
+
+237
+00:11:22,960 --> 00:11:27,060
+And so those programs essentially
+decide, in their own context,
+
+238
+00:11:27,060 --> 00:11:31,380
+whether to display patterns of
+bits as numbers or as letters
+
+239
+00:11:31,380 --> 00:11:33,120
+or, in turn, words and paragraphs.
+
+240
+00:11:33,120 --> 00:11:35,580
+So it's entirely context-dependent.
+
+241
+00:11:35,580 --> 00:11:38,610
+At the end of the day, all the
+computer is storing is 0s and 1s,
+
+242
+00:11:38,610 --> 00:11:42,240
+but it's up to the program to interpret
+those 0s and 1s in a certain way.
+
+243
+00:11:42,240 --> 00:11:46,650
+And so, if a program like
+Microsoft Word or Google Docs
+
+244
+00:11:46,650 --> 00:11:54,580
+sees a pattern of bits in a file that
+represents the decimal number 65--
+
+245
+00:11:54,580 --> 00:11:57,919
+it's still pattern of 0s
+and 1s expressed in binary,
+
+246
+00:11:57,919 --> 00:12:00,460
+but of course, we've seen how
+we can convert that to decimal.
+
+247
+00:12:00,460 --> 00:12:03,300
+So if a computer is ultimately
+storing a pattern of 0s and 1s
+
+248
+00:12:03,300 --> 00:12:06,900
+that represents the decimal
+number 65, the computer,
+
+249
+00:12:06,900 --> 00:12:10,130
+in this case Microsoft Word, or Google
+Docs, and the program running there,
+
+250
+00:12:10,130 --> 00:12:13,650
+is going to interpret that
+pattern, not as the number 65,
+
+251
+00:12:13,650 --> 00:12:18,240
+and not as a whole bunch of 0s and 1s
+alone, but as the capital letter A.
+
+252
+00:12:18,240 --> 00:12:19,990
+And that's what you'll
+see on your screen.
+
+253
+00:12:19,990 --> 00:12:24,022
+If it, instead, sees a pattern of bits
+that represents the decimal number 66,
+
+254
+00:12:24,022 --> 00:12:25,980
+Microsoft Word or Google
+Docs is going to show,
+
+255
+00:12:25,980 --> 00:12:28,530
+instead, the capitol letter
+B. If the pattern of bits
+
+256
+00:12:28,530 --> 00:12:31,680
+instead represents
+the decimal number 97,
+
+257
+00:12:31,680 --> 00:12:35,490
+that program is going to display
+the lowercase letter a or any number
+
+258
+00:12:35,490 --> 00:12:37,630
+of other letters from the alphabet.
+
+259
+00:12:37,630 --> 00:12:41,730
+And so we just had to decide
+in advance what mapping to use,
+
+260
+00:12:41,730 --> 00:12:44,850
+what code to use that
+maps numbers to letters.
+
+261
+00:12:44,850 --> 00:12:47,370
+And in fact, you'll notice
+that quite a few characters
+
+262
+00:12:47,370 --> 00:12:48,890
+are absent from the screen here.
+
+263
+00:12:48,890 --> 00:12:52,140
+In fact, if you speak some language and
+write some language other than English
+
+264
+00:12:52,140 --> 00:12:53,931
+there might be some
+characters that you can
+
+265
+00:12:53,931 --> 00:12:56,890
+express with just this range of values.
+
+266
+00:12:56,890 --> 00:13:00,300
+In fact ASCII originally
+only used 7 bits total.
+
+267
+00:13:00,300 --> 00:13:04,350
+Or if you round up, 8 bits total,
+for what's called the extended ASCII.
+
+268
+00:13:04,350 --> 00:13:09,930
+And it turns out, that's not nearly
+enough patterns of bits, 256 maximally,
+
+269
+00:13:09,930 --> 00:13:12,240
+that you can use to express
+characters that you might
+
+270
+00:13:12,240 --> 00:13:15,900
+see in certain Asian languages or
+symbols that just simply are not
+
+271
+00:13:15,900 --> 00:13:17,880
+depicted even yet on the screen here.
+
+272
+00:13:17,880 --> 00:13:19,770
+So there are other
+systems, not just ASCII.
+
+273
+00:13:19,770 --> 00:13:23,400
+Something called Unicode, for instance,
+is a superset of what you see here.
+
+274
+00:13:23,400 --> 00:13:26,190
+And that actually allows us to
+express any number of characters
+
+275
+00:13:26,190 --> 00:13:29,550
+from English and Asian languages
+and beyond and, in fact, even
+
+276
+00:13:29,550 --> 00:13:32,739
+things like the emoji
+characters-- the smiley faces,
+
+277
+00:13:32,739 --> 00:13:35,280
+and other such characters that
+you might now use increasingly
+
+278
+00:13:35,280 --> 00:13:37,170
+on your phone, your desktop, or laptop.
+
+279
+00:13:37,170 --> 00:13:40,287
+Those two are expressed ultimately
+as just patterns of bits.
+
+280
+00:13:40,287 --> 00:13:42,120
+And the world, for the
+most part, has simply
+
+281
+00:13:42,120 --> 00:13:44,820
+standardized on what
+pattern of bits represents
+
+282
+00:13:44,820 --> 00:13:48,450
+a happy face, what pattern of
+bits represents a sad face,
+
+283
+00:13:48,450 --> 00:13:51,750
+and beyond, in that
+system there is Unicode.
+
+284
+00:13:51,750 --> 00:13:53,740
+So let's take an example.
+
+285
+00:13:53,740 --> 00:13:57,450
+Suppose that you see this pattern
+of bits somewhere in a file.
+
+286
+00:13:57,450 --> 00:14:00,840
+And you, in this context, say are
+Microsoft Word, or Google Docs,
+
+287
+00:14:00,840 --> 00:14:04,560
+or some program designed to display,
+not numbers like a calculator,
+
+288
+00:14:04,560 --> 00:14:08,310
+but words and letters like a
+word processor or a text editor.
+
+289
+00:14:08,310 --> 00:14:10,140
+Well, what is this pattern of bits?
+
+290
+00:14:10,140 --> 00:14:12,000
+Well, we haven't seen
+this many bits before,
+
+291
+00:14:12,000 --> 00:14:16,230
+but it looks to be like
+two patterns of eight.
+
+292
+00:14:16,230 --> 00:14:20,580
+And in fact, it turns out that anytime
+you have eight bits here or eight bits
+
+293
+00:14:20,580 --> 00:14:24,810
+here, humans generally refer
+to this as a byte, B-Y-T-E.
+
+294
+00:14:24,810 --> 00:14:26,730
+So a byte is just eight bits.
+
+295
+00:14:26,730 --> 00:14:28,920
+And it's a slightly more
+useful measure because it's
+
+296
+00:14:28,920 --> 00:14:32,980
+a lot bigger than a single bit, which
+can, of course, only represent 0 or 1.
+
+297
+00:14:32,980 --> 00:14:35,260
+A byte can actually count higher.
+
+298
+00:14:35,260 --> 00:14:38,640
+So what are the columns here if we
+look only at this number at left?
+
+299
+00:14:38,640 --> 00:14:48,370
+This is my 1's place, 2's, 4's, 8's,
+16's, 32's, and 64, and then 128.
+
+300
+00:14:48,370 --> 00:14:51,030
+So in which of these columns
+do I actually have values?
+
+301
+00:14:51,030 --> 00:14:54,770
+I seem to have a 1 in the 64's place.
+
+302
+00:14:54,770 --> 00:14:59,030
+And I seem to have a
+1 in the 16's place.
+
+303
+00:14:59,030 --> 00:15:04,520
+So 64 plus 16, if I do that
+arithmetic, that gives me 72.
+
+304
+00:15:04,520 --> 00:15:07,070
+So this pattern of
+bits on the left here,
+
+305
+00:15:07,070 --> 00:15:10,250
+seems to be representing the number 72.
+
+306
+00:15:10,250 --> 00:15:12,860
+Now let's consider the
+pattern of bits on the right.
+
+307
+00:15:12,860 --> 00:15:21,950
+Again, my 1's place, 2's place,
+4's 8's, 16's, 32, 64, 128.
+
+308
+00:15:21,950 --> 00:15:25,070
+Now notice, these patterns
+are actually almost identical.
+
+309
+00:15:25,070 --> 00:15:29,040
+We've got a 1 in the 64's place,
+we've got a 1 in the 16's place,
+
+310
+00:15:29,040 --> 00:15:32,390
+but we've also got an
+extra one in the 1's place.
+
+311
+00:15:32,390 --> 00:15:38,450
+So if this was 72, and this pattern
+is identical except for this last bit
+
+312
+00:15:38,450 --> 00:15:44,542
+here, which adds 1, this
+must be 72 followed by 73.
+
+313
+00:15:44,542 --> 00:15:46,250
+And I've put a space
+here, visually, just
+
+314
+00:15:46,250 --> 00:15:48,916
+to separate the fact that these
+are, indeed, two separate bytes.
+
+315
+00:15:48,916 --> 00:15:52,250
+And I claim now that, yes,
+while you could interpret these
+
+316
+00:15:52,250 --> 00:15:59,210
+as two decimal digits, 72 and 73,
+it turns out, per the ASCII system,
+
+317
+00:15:59,210 --> 00:16:03,590
+we could map 72 and 73
+to alphabetical letters.
+
+318
+00:16:03,590 --> 00:16:04,850
+What might those letters be?
+
+319
+00:16:04,850 --> 00:16:08,480
+Well, if we consider our
+chart again, 72 apparently
+
+320
+00:16:08,480 --> 00:16:11,990
+gives us a capital H. 73
+gives us the capital I.
+
+321
+00:16:11,990 --> 00:16:16,400
+And, voila, 72 followed by 73 in
+a computer's memory, apparently,
+
+322
+00:16:16,400 --> 00:16:19,400
+is how a computer would express HI.
+
+323
+00:16:19,400 --> 00:16:23,750
+And of course, if we used more bytes,
+and therefore more bits, and therefore
+
+324
+00:16:23,750 --> 00:16:28,250
+more numbers, we could represent even
+larger words than just H I, or HI.
+
+325
+00:16:28,250 --> 00:16:31,410
+But that's exactly how a computer,
+underneath the hood so to speak,
+
+326
+00:16:31,410 --> 00:16:34,400
+would store a word like HI.
+
+327
+00:16:34,400 --> 00:16:37,700
+Now what is indeed using
+these patterns of bits?
+
+328
+00:16:37,700 --> 00:16:40,940
+And what is a computer actually
+doing at the end of the day?
+
+329
+00:16:40,940 --> 00:16:44,900
+Well, for that, we need to take a
+look under the hood, so to speak.
+
+330
+00:16:44,900 --> 00:16:48,170
+This is what Intel inside means.
+
+331
+00:16:48,170 --> 00:16:54,380
+If your Mac or your PC
+comes with an Intel Inside,
+
+332
+00:16:54,380 --> 00:16:58,060
+as goes the marketing slogan, that means
+that your computer has inside of it
+
+333
+00:16:58,060 --> 00:17:02,916
+a CPU, a Central Processing Unit that
+looks a little something like this.
+
+334
+00:17:02,916 --> 00:17:04,040
+It's a pretty small device.
+
+335
+00:17:04,040 --> 00:17:05,405
+It's not quite as big as this.
+
+336
+00:17:05,405 --> 00:17:06,858
+This, of course, is not to scale.
+
+337
+00:17:06,858 --> 00:17:09,318
+It wouldn't fit in your
+actual laptop or desktop.
+
+338
+00:17:09,319 --> 00:17:10,700
+But what you see is two sides.
+
+339
+00:17:10,700 --> 00:17:13,144
+This is just a mental case
+and a nice big logo there.
+
+340
+00:17:13,144 --> 00:17:15,560
+And then, if you flip this
+around, you see the other side,
+
+341
+00:17:15,560 --> 00:17:18,440
+which generally has a
+whole bunch of golden pins
+
+342
+00:17:18,440 --> 00:17:22,579
+that actually interconnect to a
+device inside of the computer.
+
+343
+00:17:22,579 --> 00:17:24,710
+And now what is that device?
+
+344
+00:17:24,710 --> 00:17:28,118
+Well, that device, we'll soon see,
+is something called the motherboard.
+
+345
+00:17:28,118 --> 00:17:31,190
+A motherboard is a circuit
+board, so a big piece
+
+346
+00:17:31,190 --> 00:17:34,610
+of silicon or plastic-like
+material that has
+
+347
+00:17:34,610 --> 00:17:37,340
+a lot of lines running
+back and forth on it,
+
+348
+00:17:37,340 --> 00:17:40,580
+and often has sockets, essentially,
+a bunch of tiny little holes
+
+349
+00:17:40,580 --> 00:17:45,590
+into which devices like this fit so that
+you can put this inside of a computer
+
+350
+00:17:45,590 --> 00:17:47,810
+and actually have it
+clamped down on something.
+
+351
+00:17:47,810 --> 00:17:49,670
+Now what does it mean to be a CPU?
+
+352
+00:17:49,670 --> 00:17:51,546
+Well, the CPU is the
+brains of your computer.
+
+353
+00:17:51,546 --> 00:17:53,253
+It's the thing in your
+computer that does
+
+354
+00:17:53,253 --> 00:17:54,800
+all of the work, all of the thinking.
+
+355
+00:17:54,800 --> 00:17:56,930
+Now what kind of thinking
+does a computer need to do?
+
+356
+00:17:56,930 --> 00:17:58,550
+Well, if you're feeding
+it all of these numbers,
+
+357
+00:17:58,550 --> 00:18:00,410
+and you're feeding it
+all of these letters,
+
+358
+00:18:00,410 --> 00:18:03,200
+you want to maybe perform
+math on those numbers.
+
+359
+00:18:03,200 --> 00:18:05,796
+You might want to display
+those letters on the screen.
+
+360
+00:18:05,796 --> 00:18:07,670
+You might want to add
+or delete those letters
+
+361
+00:18:07,670 --> 00:18:10,340
+if the user is using a word
+processor and typing new characters
+
+362
+00:18:10,340 --> 00:18:11,270
+or hitting delete.
+
+363
+00:18:11,270 --> 00:18:15,020
+And so a computer needs to do all of
+that thinking and work for the human.
+
+364
+00:18:15,020 --> 00:18:18,440
+And the peace inside of the
+computer that does most of that work
+
+365
+00:18:18,440 --> 00:18:22,220
+is, indeed, this device
+here called the CPU.
+
+366
+00:18:22,220 --> 00:18:26,720
+Now, it turns out, that CPUs today
+are actually getting pretty fancy.
+
+367
+00:18:26,720 --> 00:18:31,690
+And inside of a CPU, typically,
+is one or more cores, so to speak.
+
+368
+00:18:31,690 --> 00:18:34,340
+And a core is really
+what's doing the work.
+
+369
+00:18:34,340 --> 00:18:37,790
+And it is the device inside
+of this device that actually
+
+370
+00:18:37,790 --> 00:18:40,760
+can do addition, and subtraction,
+and multiplication, and division,
+
+371
+00:18:40,760 --> 00:18:43,730
+and other operations still
+loading information from memory,
+
+372
+00:18:43,730 --> 00:18:45,470
+saving information to memory.
+
+373
+00:18:45,470 --> 00:18:50,270
+And so a CPU like this might have
+one, or two, or four or more cores,
+
+374
+00:18:50,270 --> 00:18:54,810
+which means it can do one, or two,
+or four or more things at a time.
+
+375
+00:18:54,810 --> 00:18:57,260
+And that's great because,
+these days on my Mac or my PC,
+
+376
+00:18:57,260 --> 00:18:59,120
+I might double-click a
+whole bunch of icons.
+
+377
+00:18:59,120 --> 00:19:00,680
+I might be running multiple programs.
+
+378
+00:19:00,680 --> 00:19:02,420
+I might be chatting
+with a friend over here.
+
+379
+00:19:02,420 --> 00:19:04,253
+I might be working on
+my homework over here.
+
+380
+00:19:04,253 --> 00:19:07,640
+And so I might have a lot of programs
+and a lot of files open simultaneously.
+
+381
+00:19:07,640 --> 00:19:12,350
+And thanks to multiple cores inside
+of a CPU, can each of those programs
+
+382
+00:19:12,350 --> 00:19:14,264
+continue running in parallel.
+
+383
+00:19:14,264 --> 00:19:16,180
+Maybe one is printing
+something to my printer.
+
+384
+00:19:16,180 --> 00:19:18,080
+Or maybe one is playing back a video.
+
+385
+00:19:18,080 --> 00:19:19,790
+Maybe one is spell-checking a file.
+
+386
+00:19:19,790 --> 00:19:24,180
+Any number of operations can
+literally be happening simultaneously.
+
+387
+00:19:24,180 --> 00:19:27,320
+Now moreover, it turns out
+that the fanciest of use today,
+
+388
+00:19:27,320 --> 00:19:30,950
+from Intel especially, also support
+something called hyperthreading,
+
+389
+00:19:30,950 --> 00:19:33,740
+which means you might just
+have one CPU or one core,
+
+390
+00:19:33,740 --> 00:19:37,970
+but thanks to some technology
+built into the CPU itself,
+
+391
+00:19:37,970 --> 00:19:41,660
+it will present itself to the
+computer, to the operating system,
+
+392
+00:19:41,660 --> 00:19:44,600
+Mac OS or Windows--
+more on those in a bit--
+
+393
+00:19:44,600 --> 00:19:47,900
+as though it's actually
+two CPUs or two cores.
+
+394
+00:19:47,900 --> 00:19:51,800
+And so, thanks to technology,
+can your computer actually
+
+395
+00:19:51,800 --> 00:19:54,990
+think it has even more computational
+power than it actually has,
+
+396
+00:19:54,990 --> 00:19:57,870
+thereby allowing it to
+take advantage of downtime
+
+397
+00:19:57,870 --> 00:20:01,200
+or slow running programs
+that might still allow you
+
+398
+00:20:01,200 --> 00:20:03,990
+to run multiple things simultaneously.
+
+399
+00:20:03,990 --> 00:20:06,390
+But we'll come back
+to that in just a bit.
+
+400
+00:20:06,390 --> 00:20:10,710
+Now, not all devices have just a
+CPU connected to a motherboard.
+
+401
+00:20:10,710 --> 00:20:17,010
+Some devices, instead, have a CPU and
+more all interconnected all at once.
+
+402
+00:20:17,010 --> 00:20:19,530
+And these things are generally
+known as systems on a chip.
+
+403
+00:20:19,530 --> 00:20:23,490
+And they're especially popular in
+things like tablets or iPads these days,
+
+404
+00:20:23,490 --> 00:20:27,420
+game consoles like Xboxes or even
+things like the Raspberry Pi,
+
+405
+00:20:27,420 --> 00:20:30,870
+which is a very small computer
+that looks pretty much like this.
+
+406
+00:20:30,870 --> 00:20:33,780
+Also not to scale, this thing
+could fit in the palm of my hand.
+
+407
+00:20:33,780 --> 00:20:37,230
+And this has, not only one of
+these silicon circuit boards--
+
+408
+00:20:37,230 --> 00:20:41,220
+generally green, and you'll see
+there's very fine lines or traces that
+
+409
+00:20:41,220 --> 00:20:43,380
+interconnect all of the
+chips and technology
+
+410
+00:20:43,380 --> 00:20:45,570
+that's plugged into this
+thing-- and it also has,
+
+411
+00:20:45,570 --> 00:20:47,050
+well, first and foremost, no case.
+
+412
+00:20:47,050 --> 00:20:49,924
+There's no pretty plastic case that
+protects all of these components.
+
+413
+00:20:49,924 --> 00:20:51,690
+It really is just a
+raw piece of hardware
+
+414
+00:20:51,690 --> 00:20:56,370
+that computer technophiles like
+to use to build their own machines
+
+415
+00:20:56,370 --> 00:20:58,230
+and programs.
+
+416
+00:20:58,230 --> 00:20:59,970
+But it has a whole bunch of ports--
+
+417
+00:20:59,970 --> 00:21:02,190
+as we'll return to in a
+bit-- a whole bunch of places
+
+418
+00:21:02,190 --> 00:21:04,450
+you can connect other devices.
+
+419
+00:21:04,450 --> 00:21:06,480
+But these systems on a
+chip all come together.
+
+420
+00:21:06,480 --> 00:21:10,890
+And they do many things beyond
+just the CPU's task alone.
+
+421
+00:21:10,890 --> 00:21:12,690
+But what else is inside
+of your computer?
+
+422
+00:21:12,690 --> 00:21:14,400
+Well, the CPU is the brain.
+
+423
+00:21:14,400 --> 00:21:18,070
+And the CPU on a system on
+a chip is thereto the brain.
+
+424
+00:21:18,070 --> 00:21:20,909
+But there's other components
+necessary inside of a computer
+
+425
+00:21:20,909 --> 00:21:21,950
+so we can do actual work.
+
+426
+00:21:21,950 --> 00:21:25,890
+And one of those things is called
+memory or random access memory.
+
+427
+00:21:25,890 --> 00:21:29,835
+And random access memory
+looks, physically, like this.
+
+428
+00:21:29,835 --> 00:21:35,850
+This is a chip that you might slide into
+a little slot inside of your computer
+
+429
+00:21:35,850 --> 00:21:39,750
+specifically on the so-called
+motherboard, again, a big greenish
+
+430
+00:21:39,750 --> 00:21:42,479
+board into which all of your
+computer's components connect.
+
+431
+00:21:42,479 --> 00:21:45,270
+And there's usually a little divot
+here, a little bump to make sure
+
+432
+00:21:45,270 --> 00:21:48,311
+you put it in the right way-- instead
+this way, instead of, for instance,
+
+433
+00:21:48,311 --> 00:21:48,960
+that way.
+
+434
+00:21:48,960 --> 00:21:52,140
+And then on this green circuit
+board are all these various chips
+
+435
+00:21:52,140 --> 00:21:54,210
+that actually store your data.
+
+436
+00:21:54,210 --> 00:21:59,400
+Specifically, they store your data in
+a volatile way, only when the power is
+
+437
+00:21:59,400 --> 00:22:01,890
+on, when your laptop has
+battery and is running
+
+438
+00:22:01,890 --> 00:22:04,440
+or when your laptop is
+plugged in and is running.
+
+439
+00:22:04,440 --> 00:22:06,960
+Which is to say, when you
+double-click an icon on the screen
+
+440
+00:22:06,960 --> 00:22:10,920
+or run some program, open
+some file, those files
+
+441
+00:22:10,920 --> 00:22:15,750
+are loaded into the little black
+chips that you see on this stick here.
+
+442
+00:22:15,750 --> 00:22:18,450
+They're loaded into RAM
+or Random Access Memory.
+
+443
+00:22:18,450 --> 00:22:20,070
+And this memory is pretty fast.
+
+444
+00:22:20,070 --> 00:22:22,620
+And it is where those
+files and programs live,
+
+445
+00:22:22,620 --> 00:22:25,950
+so long as you are using them
+at a given moment in time.
+
+446
+00:22:25,950 --> 00:22:29,070
+Now other devices have slightly
+different looking sticks of RAM.
+
+447
+00:22:29,070 --> 00:22:31,200
+This is a smaller stick
+here that's actually
+
+448
+00:22:31,200 --> 00:22:35,250
+found, typically, in laptops or certain
+desktop models, but it's the same idea.
+
+449
+00:22:35,250 --> 00:22:37,210
+It's simply a different form factor.
+
+450
+00:22:37,210 --> 00:22:39,720
+Now you can actually
+see in your Mac or PC
+
+451
+00:22:39,720 --> 00:22:41,869
+sometimes exactly how much
+RAM you have, especially
+
+452
+00:22:41,869 --> 00:22:44,160
+if you bought the computer
+without knowing this concept
+
+453
+00:22:44,160 --> 00:22:46,630
+or were given the computer
+and didn't think to ask.
+
+454
+00:22:46,630 --> 00:22:50,610
+In fact, on Windows, if you open
+up the so-called Task Manager
+
+455
+00:22:50,610 --> 00:22:54,810
+and look at the CPU tab, you might
+see a little something like this.
+
+456
+00:22:54,810 --> 00:22:58,080
+You'll see one, a nice little chart
+that shows you what your CPU has
+
+457
+00:22:58,080 --> 00:22:59,820
+been doing over the past few seconds.
+
+458
+00:22:59,820 --> 00:23:01,650
+And the higher these peaks
+are, the busier it was.
+
+459
+00:23:01,650 --> 00:23:03,733
+Maybe you double-clicked
+an icon or played a video
+
+460
+00:23:03,733 --> 00:23:06,270
+or sent a really big email
+or something like that.
+
+461
+00:23:06,270 --> 00:23:09,690
+But more interesting, down
+here, is the speed of your CPU.
+
+462
+00:23:09,690 --> 00:23:12,300
+This one is 1.9 for gigahertz.
+
+463
+00:23:12,300 --> 00:23:16,500
+And a gigahertz means 1
+billion things per second.
+
+464
+00:23:16,500 --> 00:23:21,060
+So a you that's 1.9 for gigahertz
+means that this computer, this CPU
+
+465
+00:23:21,060 --> 00:23:25,290
+can do 1.94 billion things per second--
+
+466
+00:23:25,290 --> 00:23:27,030
+additions, subtractions,
+multiplications,
+
+467
+00:23:27,030 --> 00:23:29,740
+printing to the screen,
+any number of other things.
+
+468
+00:23:29,740 --> 00:23:34,200
+But if we look, odds are this is
+marketed, frankly, as 2 gigahertz,
+
+469
+00:23:34,200 --> 00:23:36,720
+and maybe it has burst technology
+whereby it can actually
+
+470
+00:23:36,720 --> 00:23:39,840
+go even a little faster,
+maximum speed 2.81
+
+471
+00:23:39,840 --> 00:23:44,942
+gigahertz by maybe using a little
+more energy for some amount of time
+
+472
+00:23:44,942 --> 00:23:46,650
+and therefore generating
+a bit more heat.
+
+473
+00:23:46,650 --> 00:23:50,430
+But you'll see that there's only one
+socket in the computer from which I
+
+474
+00:23:50,430 --> 00:23:53,260
+took this screenshot from Windows,
+which means there's one CPU.
+
+475
+00:23:53,260 --> 00:23:57,420
+But that CPU has two cores, which means
+that the computer can do literally
+
+476
+00:23:57,420 --> 00:24:01,687
+two things at once because it has
+really two brains inside of that device
+
+477
+00:24:01,687 --> 00:24:03,270
+that we saw a picture of a moment ago.
+
+478
+00:24:03,270 --> 00:24:05,580
+But logically, it actually seems four.
+
+479
+00:24:05,580 --> 00:24:10,860
+So this particular windows computer
+has a CPU with two cores, each of which
+
+480
+00:24:10,860 --> 00:24:13,350
+supports that technology
+called hyperthreading, which
+
+481
+00:24:13,350 --> 00:24:17,820
+means that each of those cores will
+present itself to the Windows operating
+
+482
+00:24:17,820 --> 00:24:19,290
+system as though it's two.
+
+483
+00:24:19,290 --> 00:24:22,470
+Which is to say each core will
+do two things simultaneously,
+
+484
+00:24:22,470 --> 00:24:26,820
+thereby giving me four logical
+processors or, really, the ability
+
+485
+00:24:26,820 --> 00:24:29,110
+to do 4 total things at once.
+
+486
+00:24:29,110 --> 00:24:31,920
+So perhaps lower level detail
+than is perhaps germane,
+
+487
+00:24:31,920 --> 00:24:35,250
+but these are the kinds of things
+that you end up paying for in a store
+
+488
+00:24:35,250 --> 00:24:37,144
+or when you buy a computer online.
+
+489
+00:24:37,144 --> 00:24:39,810
+This is what distinguishes a less
+expensive computer from a more
+
+490
+00:24:39,810 --> 00:24:44,100
+expensive computer is just
+how fast the CPU or CPUs are
+
+491
+00:24:44,100 --> 00:24:47,160
+and just how many cores
+the CPU has and, therefore,
+
+492
+00:24:47,160 --> 00:24:51,180
+just how much work you can get
+done at a given moment in time
+
+493
+00:24:51,180 --> 00:24:53,630
+or just how quickly you
+can work more generally.
+
+494
+00:24:53,630 --> 00:24:56,800
+Now, in a Mac, if you open
+up your System Profiler,
+
+495
+00:24:56,800 --> 00:25:00,010
+you'll see a different kind of
+interface, but similar information.
+
+496
+00:25:00,010 --> 00:25:02,260
+This is taken here from a MacBook Pro.
+
+497
+00:25:02,260 --> 00:25:07,450
+You can see that this CPU
+is 3.1 gigahertz, so faster,
+
+498
+00:25:07,450 --> 00:25:11,710
+but it has one processor,
+total number of cores is two.
+
+499
+00:25:11,710 --> 00:25:15,940
+And so, here, we see no mention of
+hyperthreading, which generally windows
+
+500
+00:25:15,940 --> 00:25:20,260
+is a bit more detailed on, but this does
+mean that this CPU is pretty darn fast,
+
+501
+00:25:20,260 --> 00:25:22,690
+3.1 billion things per second.
+
+502
+00:25:22,690 --> 00:25:27,670
+And it actually has two cores, so it
+can do at least two things at once.
+
+503
+00:25:27,670 --> 00:25:28,270
+All right.
+
+504
+00:25:28,270 --> 00:25:31,870
+So that's my CPU, which does all
+the thinking and all of the work.
+
+505
+00:25:31,870 --> 00:25:35,320
+That's RAM or random access memory
+where all of my data and programs
+
+506
+00:25:35,320 --> 00:25:38,390
+are stored while I am using them.
+
+507
+00:25:38,390 --> 00:25:40,250
+So what else do I need?
+
+508
+00:25:40,250 --> 00:25:43,900
+Well, where are those programs and
+files stored when the power is not on
+
+509
+00:25:43,900 --> 00:25:48,500
+or when my battery is dead or when
+my computer is not even plugged in.
+
+510
+00:25:48,500 --> 00:25:52,270
+Now, odds are, if your computer is like
+mine, you don't lose all of your files
+
+511
+00:25:52,270 --> 00:25:54,580
+and all of your programs just
+because your battery dies
+
+512
+00:25:54,580 --> 00:25:57,205
+or you move a computer, and
+therefore, unplug it from the wall.
+
+513
+00:25:57,205 --> 00:25:59,020
+It would not be a very useful device.
+
+514
+00:25:59,020 --> 00:26:03,550
+Computers do have nonvolatile
+memory that sticks around
+
+515
+00:26:03,550 --> 00:26:06,610
+even when the power is lost, but
+it uses a different technology
+
+516
+00:26:06,610 --> 00:26:08,050
+than RAM for that.
+
+517
+00:26:08,050 --> 00:26:11,860
+It tends to use a disk or a
+hard disk, as in this case.
+
+518
+00:26:11,860 --> 00:26:16,240
+So this is a device that a PC desktop
+or Mac desktop might have inside of it.
+
+519
+00:26:16,240 --> 00:26:20,050
+And it actually stores quite a bit
+more information than a stick of RAM.
+
+520
+00:26:20,050 --> 00:26:25,060
+A stick of RAM might store one gigabyte,
+two gigabytes, maybe even 16 gigabytes.
+
+521
+00:26:25,060 --> 00:26:28,510
+But a hard drive, as
+this thing is called,
+
+522
+00:26:28,510 --> 00:26:33,640
+will actually store 256 gigabytes,
+or maybe 1,000 gigabytes,
+
+523
+00:26:33,640 --> 00:26:38,440
+AKA a terabyte or even two
+terabytes or four terabytes, which
+
+524
+00:26:38,440 --> 00:26:41,992
+is an order of magnitude
+more than our sticks of RAM.
+
+525
+00:26:41,992 --> 00:26:44,200
+Inside of this device,
+though, meanwhile is something
+
+526
+00:26:44,200 --> 00:26:45,800
+that feels kind of old school.
+
+527
+00:26:45,800 --> 00:26:49,600
+It's actually one or more
+metal platters that literally
+
+528
+00:26:49,600 --> 00:26:52,330
+physically spin around mechanically.
+
+529
+00:26:52,330 --> 00:26:55,310
+And on those platters is
+your data actually stored.
+
+530
+00:26:55,310 --> 00:26:58,300
+So in RAM, there were no moving parts.
+
+531
+00:26:58,300 --> 00:27:01,450
+There is no fan, there's no motor,
+there's nothing to move back and forth.
+
+532
+00:27:01,450 --> 00:27:02,770
+It's entirely electronic.
+
+533
+00:27:02,770 --> 00:27:05,050
+It's all electrons at
+the end of the day.
+
+534
+00:27:05,050 --> 00:27:08,692
+But a hard drive is a mechanical
+device that actually has one or more
+
+535
+00:27:08,692 --> 00:27:10,900
+of these platters spinning
+and spinning and spinning.
+
+536
+00:27:10,900 --> 00:27:12,775
+And that's what allows
+the computer to access
+
+537
+00:27:12,775 --> 00:27:14,440
+different areas of those platters.
+
+538
+00:27:14,440 --> 00:27:17,350
+And, in fact, you'll see one or
+more of these little reading heads,
+
+539
+00:27:17,350 --> 00:27:19,720
+not unlike old school
+phonograph or record
+
+540
+00:27:19,720 --> 00:27:21,940
+players that actually
+move back and forth
+
+541
+00:27:21,940 --> 00:27:24,760
+and read the data from that device.
+
+542
+00:27:24,760 --> 00:27:28,510
+And what's nice about this
+device is that it's nonvolatile.
+
+543
+00:27:28,510 --> 00:27:34,510
+It uses tiny, tiny magnetic particles,
+little specks of magnetic particles,
+
+544
+00:27:34,510 --> 00:27:37,240
+that, if you orient them
+this way might represent a 1.
+
+545
+00:27:37,240 --> 00:27:41,120
+If you orient them this way it might
+represent a 0-- so north to south pole,
+
+546
+00:27:41,120 --> 00:27:44,050
+south to north pole if you
+remember some of your electronics.
+
+547
+00:27:44,050 --> 00:27:48,010
+But all that is to say is there's tiny,
+tiny, tiny little particles on here,
+
+548
+00:27:48,010 --> 00:27:52,030
+billions or more perhaps, that,
+depending on their orientation up
+
+549
+00:27:52,030 --> 00:27:54,690
+or down, represent a 1 or 0.
+
+550
+00:27:54,690 --> 00:27:56,440
+And if you have enough
+of those particles,
+
+551
+00:27:56,440 --> 00:28:00,580
+you can represent bytes or
+megabytes or gigabytes or terabytes
+
+552
+00:28:00,580 --> 00:28:02,740
+or more or anything in between.
+
+553
+00:28:02,740 --> 00:28:07,000
+And so you have the ability
+to store data this way
+
+554
+00:28:07,000 --> 00:28:09,100
+or this way, even when the power is off.
+
+555
+00:28:09,100 --> 00:28:13,600
+The power is used just to read the
+data or to write or change the data.
+
+556
+00:28:13,600 --> 00:28:17,470
+It doesn't need to stick
+around to persist the data.
+
+557
+00:28:17,470 --> 00:28:20,110
+So in fact, why don't we take
+a look at what this motor looks
+
+558
+00:28:20,110 --> 00:28:23,050
+like when actually running.
+
+559
+00:28:23,050 --> 00:28:26,590
+This is a short video from the
+Slow Mo Guys, which gives us
+
+560
+00:28:26,590 --> 00:28:29,470
+a sense of what the hard drive
+looks like when its lid is indeed
+
+561
+00:28:29,470 --> 00:28:30,490
+removed like that there.
+
+562
+00:28:30,490 --> 00:28:44,510
+[VIDEO PLAYBACK]
+
+563
+00:28:44,510 --> 00:28:45,010
+[END VIDEO]
+
+564
+00:28:45,010 --> 00:28:45,760
+DAVID J. MALAN: Fascinating.
+
+565
+00:28:45,760 --> 00:28:46,450
+I know.
+
+566
+00:28:46,450 --> 00:28:50,170
+Well, now let's actually take the
+hood off of an actual hard drive,
+
+567
+00:28:50,170 --> 00:28:55,150
+albeit via animation, and actually see
+and hear what it is that's going on.
+
+568
+00:28:55,150 --> 00:28:58,420
+And in this depiction here, you'll see
+that the magnetic particles ultimately
+
+569
+00:28:58,420 --> 00:29:01,720
+are represented as red-blue,
+or blue-red particles, which
+
+570
+00:29:01,720 --> 00:29:04,120
+represent precisely those
+magnetic particles that
+
+571
+00:29:04,120 --> 00:29:06,110
+represent your 0s and 1s.
+
+572
+00:29:06,110 --> 00:29:07,460
+[VIDEO PLAYBACK]
+
+573
+00:29:07,460 --> 00:29:11,660
+- The hard drive is where your PC
+stores most of its permanent data.
+
+574
+00:29:11,660 --> 00:29:14,600
+To do that, the data
+travels from RAM along
+
+575
+00:29:14,600 --> 00:29:19,040
+with software signals that tell the
+hard drive how to store that data.
+
+576
+00:29:19,040 --> 00:29:24,000
+The hard drive circuits translate those
+signals into voltage fluctuations.
+
+577
+00:29:24,000 --> 00:29:27,170
+These, in turn, control the
+hard drive's moving parts--
+
+578
+00:29:27,170 --> 00:29:30,900
+some of the few moving parts
+left in the modern computer.
+
+579
+00:29:30,900 --> 00:29:35,090
+Some of the signals control a motor
+which spins metal-coated platters.
+
+580
+00:29:35,090 --> 00:29:38,400
+Your data is actually
+stored on these platters.
+
+581
+00:29:38,400 --> 00:29:43,670
+Other signals move the read-write heads
+to read or write data on the platters.
+
+582
+00:29:43,670 --> 00:29:47,540
+This machinery is so precise
+that a human hair couldn't even
+
+583
+00:29:47,540 --> 00:29:50,290
+pass between the heads
+and spinning platters.
+
+584
+00:29:50,290 --> 00:29:52,425
+Yet, it all works at terrific speeds.
+
+585
+00:29:52,425 --> 00:29:53,315
+[END VIDEO]
+
+586
+00:29:53,315 --> 00:29:55,190
+DAVID J. MALAN: So where
+are those particles?
+
+587
+00:29:55,190 --> 00:29:58,550
+Well, for that, we're going to have to
+zoom in even closer because they're not
+
+588
+00:29:58,550 --> 00:30:00,050
+visible to the human eye.
+
+589
+00:30:00,050 --> 00:30:01,730
+[VIDEO PLAYBACK]
+
+590
+00:30:01,730 --> 00:30:04,700
+- Let's look at what we
+just saw in slow motion.
+
+591
+00:30:04,700 --> 00:30:08,210
+When a brief pulse of electricity
+is sent to the read-write head,
+
+592
+00:30:08,210 --> 00:30:11,960
+it flips on a tiny electromagnet
+for a fraction of a second.
+
+593
+00:30:11,960 --> 00:30:15,050
+The magnet creates a field
+which changes the polarity
+
+594
+00:30:15,050 --> 00:30:17,540
+of a tiny, tiny portion
+of the metal particles
+
+595
+00:30:17,540 --> 00:30:19,940
+which coat each platter surface.
+
+596
+00:30:19,940 --> 00:30:22,940
+A pattern series of these tiny
+charged up areas on the disk
+
+597
+00:30:22,940 --> 00:30:27,560
+represents a single bit of data in the
+binary number system used by computers.
+
+598
+00:30:27,560 --> 00:30:30,470
+Now, if the current is sent one
+way through the read-write head,
+
+599
+00:30:30,470 --> 00:30:32,911
+the area is polarized in one direction.
+
+600
+00:30:32,911 --> 00:30:34,910
+If the current is set in
+the opposite direction,
+
+601
+00:30:34,910 --> 00:30:37,010
+the polarization is reversed.
+
+602
+00:30:37,010 --> 00:30:39,440
+How do you get data off the hard disk?
+
+603
+00:30:39,440 --> 00:30:41,151
+Just reverse the process.
+
+604
+00:30:41,151 --> 00:30:43,400
+So it's the particles on the
+disk that get the current
+
+605
+00:30:43,400 --> 00:30:45,140
+in the read-write head moving.
+
+606
+00:30:45,140 --> 00:30:47,570
+Put together millions of
+these magnetized segments,
+
+607
+00:30:47,570 --> 00:30:49,190
+and you've got a file.
+
+608
+00:30:49,190 --> 00:30:52,160
+Now, the pieces of a single
+file may be scattered
+
+609
+00:30:52,160 --> 00:30:57,150
+all over a drive's platters kind of
+like the mess of papers on your desk.
+
+610
+00:30:57,150 --> 00:31:00,560
+So a special extra file keeps
+track of where everything is.
+
+611
+00:31:00,560 --> 00:31:02,490
+Don't you wish you had
+something like that?
+
+612
+00:31:02,490 --> 00:31:04,899
+[END VIDEO]
+
+613
+00:31:04,899 --> 00:31:07,190
+DAVID J. MALAN: Now, anytime
+you have a physical device
+
+614
+00:31:07,190 --> 00:31:09,980
+like this that's spinning
+all day long or for months
+
+615
+00:31:09,980 --> 00:31:13,340
+on end, if you use your computer a lot
+and for quite a long period of time,
+
+616
+00:31:13,340 --> 00:31:14,760
+something could go wrong.
+
+617
+00:31:14,760 --> 00:31:18,800
+Maybe you accidentally bump the desktop
+or the laptop, the result of which
+
+618
+00:31:18,800 --> 00:31:21,590
+is that this reading head might
+actually strike the platter
+
+619
+00:31:21,590 --> 00:31:24,680
+and make a dent in it or some kind of
+scratch which actually will corrupt,
+
+620
+00:31:24,680 --> 00:31:26,970
+not only some of the data
+perhaps, but might even
+
+621
+00:31:26,970 --> 00:31:30,950
+stop the whole device from working if
+the reading head no longer functions
+
+622
+00:31:30,950 --> 00:31:31,620
+properly.
+
+623
+00:31:31,620 --> 00:31:33,980
+Moreover, anything
+that's physical like this
+
+624
+00:31:33,980 --> 00:31:37,220
+isn't going to spin all that
+fast at the end of the day.
+
+625
+00:31:37,220 --> 00:31:40,950
+Now technically, a hard drive like
+this might spin 7,200 times per minute
+
+626
+00:31:40,950 --> 00:31:45,260
+or even 10,000 times per minute,
+but that's much, much slower
+
+627
+00:31:45,260 --> 00:31:47,900
+than the speed with
+which electrons travel
+
+628
+00:31:47,900 --> 00:31:50,057
+as they would in something like RAM.
+
+629
+00:31:50,057 --> 00:31:51,890
+Well, fortunately, it
+turns out that there's
+
+630
+00:31:51,890 --> 00:31:55,770
+something in between those technologies
+that doesn't have moving parts,
+
+631
+00:31:55,770 --> 00:32:00,440
+but that's not quite as fast as
+RAM, but that is non-volatile,
+
+632
+00:32:00,440 --> 00:32:03,050
+whereby it will store
+your data persistently
+
+633
+00:32:03,050 --> 00:32:04,520
+even when the power is off.
+
+634
+00:32:04,520 --> 00:32:09,980
+And this is so-called flash memory or
+a Solid State Disk, SSD, in this case
+
+635
+00:32:09,980 --> 00:32:10,490
+here.
+
+636
+00:32:10,490 --> 00:32:14,360
+It's a smaller device, whereas typical
+hard drives that have moving parts
+
+637
+00:32:14,360 --> 00:32:17,000
+are very often 3 and 1/2
+inches, although 2 and 1/2 inch
+
+638
+00:32:17,000 --> 00:32:19,910
+versions do exist as well, in diameter.
+
+639
+00:32:19,910 --> 00:32:25,190
+A solid state drive tends to
+be only 2.5 inches in width
+
+640
+00:32:25,190 --> 00:32:27,920
+so that it actually fits inside
+of computers in the same slots
+
+641
+00:32:27,920 --> 00:32:31,280
+that older more mechanical
+hard drives might fit.
+
+642
+00:32:31,280 --> 00:32:32,720
+But it doesn't have moving parts.
+
+643
+00:32:32,720 --> 00:32:35,844
+In fact, if we open it up, you'll see
+something very reminiscent of the RAM
+
+644
+00:32:35,844 --> 00:32:36,560
+we saw earlier.
+
+645
+00:32:36,560 --> 00:32:41,090
+But the technology inside of this
+device is such that the data persists,
+
+646
+00:32:41,090 --> 00:32:44,420
+even when your battery dies or
+you unplug your laptop or desktop.
+
+647
+00:32:44,420 --> 00:32:50,690
+But the upside of an SSD, being entirely
+electronic, is that it's much faster.
+
+648
+00:32:50,690 --> 00:32:52,490
+And so this means that
+your programs will
+
+649
+00:32:52,490 --> 00:32:54,950
+load faster when you
+double-click them, your files
+
+650
+00:32:54,950 --> 00:32:57,110
+will open up faster when
+you double-click on them.
+
+651
+00:32:57,110 --> 00:33:00,860
+Anything you might do or save to
+your hard drive or solid state drive,
+
+652
+00:33:00,860 --> 00:33:03,620
+in this case, will actually get
+saved much more quickly, which
+
+653
+00:33:03,620 --> 00:33:07,501
+means you might see a little hourglass
+or spinning beachball much less
+
+654
+00:33:07,501 --> 00:33:08,000
+frequently.
+
+655
+00:33:08,000 --> 00:33:11,930
+And your computer is going to
+behave and certainly feel faster.
+
+656
+00:33:11,930 --> 00:33:15,530
+Now the catch is that solid
+state drives, theoretically,
+
+657
+00:33:15,530 --> 00:33:19,040
+won't necessarily last as long,
+depending on the quality of the brand
+
+658
+00:33:19,040 --> 00:33:21,170
+and the technology being
+used whereby they only
+
+659
+00:33:21,170 --> 00:33:22,730
+have a finite number of writes.
+
+660
+00:33:22,730 --> 00:33:25,770
+You can read from them
+nearly as much as you want.
+
+661
+00:33:25,770 --> 00:33:29,300
+But over time, they'll degrade
+in terms of how many times
+
+662
+00:33:29,300 --> 00:33:30,530
+you can keep writing to them.
+
+663
+00:33:30,530 --> 00:33:32,270
+Now, for many people this
+might be a non-issue,
+
+664
+00:33:32,270 --> 00:33:35,390
+but to mitigate against this, has
+the industry also introduced what are
+
+665
+00:33:35,390 --> 00:33:36,870
+called hybrid drives--
+
+666
+00:33:36,870 --> 00:33:40,550
+hard drives that might be the
+same size as this or the same size
+
+667
+00:33:40,550 --> 00:33:43,520
+as a 3 and 1/2 inch drive like
+the spinning mechanical device we
+
+668
+00:33:43,520 --> 00:33:47,240
+saw a moment ago in our animated form--
+
+669
+00:33:47,240 --> 00:33:50,030
+but they might have both
+some solid state memory
+
+670
+00:33:50,030 --> 00:33:54,710
+and some mechanical hard drive memory
+so that you might have a few megabytes
+
+671
+00:33:54,710 --> 00:33:57,170
+or gigabytes of solid state memory.
+
+672
+00:33:57,170 --> 00:34:00,920
+And you might have a few gigabytes
+or terabytes of traditional hard disk
+
+673
+00:34:00,920 --> 00:34:01,610
+space.
+
+674
+00:34:01,610 --> 00:34:05,570
+And the device itself moves
+your data around in a clever way
+
+675
+00:34:05,570 --> 00:34:08,060
+so that it tries to keep as
+much of the data that you
+
+676
+00:34:08,060 --> 00:34:11,870
+want to use, at a given moment, on
+the solid state part of the device
+
+677
+00:34:11,870 --> 00:34:14,000
+so that it's readily accessible for you.
+
+678
+00:34:14,000 --> 00:34:16,670
+And the data that you might
+not need, right then and there,
+
+679
+00:34:16,670 --> 00:34:19,040
+stays on the slower,
+more mechanical device
+
+680
+00:34:19,040 --> 00:34:21,620
+where, nonetheless, you
+have a lot more storage.
+
+681
+00:34:21,620 --> 00:34:24,560
+Now flash memory is something you
+might have heard about before now,
+
+682
+00:34:24,560 --> 00:34:26,620
+but in the form of
+these things here, USB
+
+683
+00:34:26,620 --> 00:34:29,670
+sticks that might store 1
+gigabyte or 16 gigabytes or more.
+
+684
+00:34:29,670 --> 00:34:32,419
+But it's data that you might want
+to carry around on your keychain
+
+685
+00:34:32,420 --> 00:34:34,730
+or in your pocket or keep
+around on your desk simply
+
+686
+00:34:34,730 --> 00:34:37,219
+for transferring files from
+one computer to another
+
+687
+00:34:37,219 --> 00:34:39,039
+or keeping some data with you.
+
+688
+00:34:39,039 --> 00:34:41,330
+They tend to be slower though,
+than solid state drives.
+
+689
+00:34:41,330 --> 00:34:43,040
+They tend to be less reliable.
+
+690
+00:34:43,040 --> 00:34:46,120
+But they also tend to be much
+less expensive, but also smaller
+
+691
+00:34:46,120 --> 00:34:47,030
+in capacity.
+
+692
+00:34:47,030 --> 00:34:49,851
+But the technology is
+very similar in spirit.
+
+693
+00:34:49,851 --> 00:34:51,559
+If you need more
+storage space than that,
+
+694
+00:34:51,560 --> 00:34:54,972
+you might actually carry around with
+you a solid state drive externally.
+
+695
+00:34:54,972 --> 00:34:57,180
+So it might be a little
+bigger, and a little heavier,
+
+696
+00:34:57,180 --> 00:34:59,305
+and not something you want
+to put on your keychain.
+
+697
+00:34:59,305 --> 00:35:03,320
+But this might store
+256 gigabytes of space
+
+698
+00:35:03,320 --> 00:35:08,270
+or even a terabyte of space, all of
+which is now carried around externally.
+
+699
+00:35:08,270 --> 00:35:10,880
+And via some kind of cable
+can you plug this device
+
+700
+00:35:10,880 --> 00:35:14,240
+into your laptop or desktop or maybe
+a friend or colleague's computer
+
+701
+00:35:14,240 --> 00:35:17,630
+so that you can share files
+without having a local network.
+
+702
+00:35:17,630 --> 00:35:21,290
+If you need even more storage than that,
+1 terabyte, 2 terabytes, 4 terabytes,
+
+703
+00:35:21,290 --> 00:35:24,830
+or more, you might actually have
+another type of external hard drive
+
+704
+00:35:24,830 --> 00:35:28,610
+inside of which is one of those older
+more traditional mechanical drives,
+
+705
+00:35:28,610 --> 00:35:33,950
+the 3 and 1/2 inch disk devices, that
+might store much, much, much more data.
+
+706
+00:35:33,950 --> 00:35:36,750
+But the price you pay is that
+it's a mechanical device.
+
+707
+00:35:36,750 --> 00:35:39,090
+It might be, therefore,
+a little bit slower.
+
+708
+00:35:39,090 --> 00:35:41,240
+And so ultimately,
+there's this trade-off
+
+709
+00:35:41,240 --> 00:35:44,300
+between how much space you get,
+how much money you're spending,
+
+710
+00:35:44,300 --> 00:35:48,657
+and how quickly you can get data
+from and to that external device.
+
+711
+00:35:48,657 --> 00:35:51,740
+In fact, there's this whole series of
+trade-offs that we've seen thus far.
+
+712
+00:35:51,740 --> 00:35:53,900
+And you can actually think
+of these various types
+
+713
+00:35:53,900 --> 00:35:56,900
+of memory inside of a computer
+like a funnel of sorts
+
+714
+00:35:56,900 --> 00:36:01,010
+whereby you have a pretty big opening
+where you keep a lot of your data
+
+715
+00:36:01,010 --> 00:36:02,630
+on the biggest of your devices.
+
+716
+00:36:02,630 --> 00:36:06,080
+But the goal is to get that data
+closer and closer and closer
+
+717
+00:36:06,080 --> 00:36:09,390
+to your computer's brain where
+it can do some actual work.
+
+718
+00:36:09,390 --> 00:36:12,440
+Indeed, if you think of the CPU as
+being at the bottom of this funnel,
+
+719
+00:36:12,440 --> 00:36:15,260
+that's to whom you want
+to get all of this data.
+
+720
+00:36:15,260 --> 00:36:18,710
+So throughout this funnel, you might
+have your hard disk or your solid state
+
+721
+00:36:18,710 --> 00:36:21,890
+disk up here which stores a lot of
+your files a lot of your programs
+
+722
+00:36:21,890 --> 00:36:25,820
+persistently in a nonvolatile way
+so that it's permanent even when
+
+723
+00:36:25,820 --> 00:36:28,610
+the power or battery no longer works.
+
+724
+00:36:28,610 --> 00:36:33,440
+But that hard disk or solid state
+disk ultimately feeds information down
+
+725
+00:36:33,440 --> 00:36:35,300
+to your computer's RAM.
+
+726
+00:36:35,300 --> 00:36:38,180
+But the ram is not the last
+stop before the computer's CPU.
+
+727
+00:36:38,180 --> 00:36:40,850
+It turns out that there's
+other types of memory
+
+728
+00:36:40,850 --> 00:36:45,120
+that a computer has that you might even
+see mentioned on your computer screen.
+
+729
+00:36:45,120 --> 00:36:47,630
+So if up here you have
+your disk, whether it's
+
+730
+00:36:47,630 --> 00:36:50,630
+a hard disk drive or a
+solid state disk drive,
+
+731
+00:36:50,630 --> 00:36:52,760
+you might have quite a bit of this.
+
+732
+00:36:52,760 --> 00:36:58,250
+This might be in the order of gigabytes
+or terabytes, billions of bytes
+
+733
+00:36:58,250 --> 00:36:59,780
+or trillions of bytes.
+
+734
+00:36:59,780 --> 00:37:05,030
+That gets fed into, ultimately, your
+computer's RAM, which probably exists
+
+735
+00:37:05,030 --> 00:37:08,300
+on the order of these days of
+gigabytes, but fewer gigabytes
+
+736
+00:37:08,300 --> 00:37:09,510
+than your actual disk.
+
+737
+00:37:09,510 --> 00:37:11,840
+Down here you're going to have your CPU.
+
+738
+00:37:11,840 --> 00:37:15,110
+And indeed, the goal is to
+get your data to the CPU.
+
+739
+00:37:15,110 --> 00:37:17,360
+And the CPU, of course,
+is measured not in bytes
+
+740
+00:37:17,360 --> 00:37:19,490
+but in gigahertz-- the
+number of billions of things
+
+741
+00:37:19,490 --> 00:37:22,220
+it can do per second with that data.
+
+742
+00:37:22,220 --> 00:37:25,730
+But there's also tends to be
+something in between RAM and CPU.
+
+743
+00:37:25,730 --> 00:37:30,830
+There's often something called
+Level 3 cache, which might
+
+744
+00:37:30,830 --> 00:37:33,290
+exist in the form of megabytes worth.
+
+745
+00:37:33,290 --> 00:37:36,680
+Then it goes into what's
+called Level 2 cache, which
+
+746
+00:37:36,680 --> 00:37:38,540
+is another type of
+memory, which also might
+
+747
+00:37:38,540 --> 00:37:43,310
+be in the kilobyte or thousands
+of bytes or megabyte range.
+
+748
+00:37:43,310 --> 00:37:47,270
+And then there might be L1
+cache, which doesn't quite
+
+749
+00:37:47,270 --> 00:37:48,380
+fit on this on the screen.
+
+750
+00:37:48,380 --> 00:37:49,010
+But that's OK.
+
+751
+00:37:49,010 --> 00:37:52,160
+Because it hints at just how small
+of a physical device this is,
+
+752
+00:37:52,160 --> 00:37:55,337
+which might be on the
+order of, say, kilobytes.
+
+753
+00:37:55,337 --> 00:37:56,420
+So these values will vary.
+
+754
+00:37:56,420 --> 00:37:58,860
+And they'll certainly change over time.
+
+755
+00:37:58,860 --> 00:38:02,180
+And so what's the pattern, then,
+among these various types of memory
+
+756
+00:38:02,180 --> 00:38:03,830
+leading to the CPU?
+
+757
+00:38:03,830 --> 00:38:06,470
+Well, the disk, whether a
+hard disk or solid state disk,
+
+758
+00:38:06,470 --> 00:38:09,500
+is not only nonvolatile--
+sticks around permanently,
+
+759
+00:38:09,500 --> 00:38:13,340
+and it's where your files and your
+programs are stored when the power is
+
+760
+00:38:13,340 --> 00:38:14,091
+off--
+
+761
+00:38:14,091 --> 00:38:16,340
+that's the biggest of these
+various types of memories,
+
+762
+00:38:16,340 --> 00:38:17,660
+but it's also the slowest.
+
+763
+00:38:17,660 --> 00:38:21,220
+Even solid state is slower than
+some of these other memories
+
+764
+00:38:21,220 --> 00:38:23,210
+below it on the funnel here.
+
+765
+00:38:23,210 --> 00:38:26,870
+Meanwhile, RAM tends to exist,
+still on the order of gigabytes,
+
+766
+00:38:26,870 --> 00:38:29,960
+but maybe 1 gigabyte, 4
+gigabytes, 16, maybe more
+
+767
+00:38:29,960 --> 00:38:32,000
+if you've splurged on
+a really nice computer.
+
+768
+00:38:32,000 --> 00:38:34,310
+But RAM recall is where
+programs and files
+
+769
+00:38:34,310 --> 00:38:38,450
+live when you double-clicked or
+opened them in order to use them
+
+770
+00:38:38,450 --> 00:38:40,310
+on your computer at a given moment.
+
+771
+00:38:40,310 --> 00:38:42,890
+Meanwhile though-- and this
+is values you don't really
+
+772
+00:38:42,890 --> 00:38:45,209
+control because they tend
+to be associated closely
+
+773
+00:38:45,209 --> 00:38:47,000
+with the CPU or the
+motherboard that you've
+
+774
+00:38:47,000 --> 00:38:52,160
+bought as part of your computer-- that
+RAM feeds information into Level 3
+
+775
+00:38:52,160 --> 00:38:58,520
+and/or Level 2 and/or Level 1 cache in
+turn so that it's less memory there,
+
+776
+00:38:58,520 --> 00:39:00,560
+but it's super, super fast.
+
+777
+00:39:00,560 --> 00:39:03,660
+And that ensures that, even though
+there's less of this memory--
+
+778
+00:39:03,660 --> 00:39:07,190
+Level 1 cache exists in smaller
+quantities than Level 3--
+
+779
+00:39:07,190 --> 00:39:08,930
+that funnel is just always filled.
+
+780
+00:39:08,930 --> 00:39:11,096
+There's always something
+at the bottom of the funnel
+
+781
+00:39:11,096 --> 00:39:12,440
+ready to be fed into the CPU.
+
+782
+00:39:12,440 --> 00:39:16,520
+So the CPU never, theoretically,
+has to wait for any data--
+
+783
+00:39:16,520 --> 00:39:20,420
+to get numbers to crunch, or
+text to display, or the like.
+
+784
+00:39:20,420 --> 00:39:23,930
+Meanwhile, there exists,
+turns out, tiny little pieces
+
+785
+00:39:23,930 --> 00:39:27,740
+of memory in a computer that we'll
+give a name to called registers.
+
+786
+00:39:27,740 --> 00:39:33,440
+And these registers typically only hold
+1 byte or 4 bytes or 8 bytes total.
+
+787
+00:39:33,440 --> 00:39:35,630
+So they're the smallest unit of memory.
+
+788
+00:39:35,630 --> 00:39:39,320
+But it's in those registers
+that the CPU stores values
+
+789
+00:39:39,320 --> 00:39:43,800
+like numbers like those decimal
+numbers we discussed earlier.
+
+790
+00:39:43,800 --> 00:39:46,344
+And if it wants to perform
+arithmetic of any sort,
+
+791
+00:39:46,344 --> 00:39:49,260
+it stores those values in these
+registers, actually performs the math,
+
+792
+00:39:49,260 --> 00:39:51,890
+stores the result in another
+register, so it's, then, ready
+
+793
+00:39:51,890 --> 00:39:55,910
+to be loaded back through this funnel
+into something like the computer's RAM
+
+794
+00:39:55,910 --> 00:39:58,550
+or ultimately saved back to disk.
+
+795
+00:39:58,550 --> 00:40:00,200
+But there's another trade-off here.
+
+796
+00:40:00,200 --> 00:40:03,800
+Besides the top of this funnel
+being bigger and slower,
+
+797
+00:40:03,800 --> 00:40:06,736
+and the bottom of this funnel
+being smaller and faster,
+
+798
+00:40:06,736 --> 00:40:09,110
+the bottom of the funnel also
+tends to be more expensive,
+
+799
+00:40:09,110 --> 00:40:11,570
+which also explains, in
+part, why you see less
+
+800
+00:40:11,570 --> 00:40:13,600
+of this memory inside of a computer.
+
+801
+00:40:13,600 --> 00:40:15,939
+The Level 1 cache might be
+more expensive than ram,
+
+802
+00:40:15,939 --> 00:40:18,230
+so you have less of it and,
+technically, you don't even
+
+803
+00:40:18,230 --> 00:40:20,396
+need as much of it so long
+as there's enough to keep
+
+804
+00:40:20,396 --> 00:40:22,400
+data waiting for the CPU.
+
+805
+00:40:22,400 --> 00:40:25,220
+But cost is certainly
+another trade-off as well.
+
+806
+00:40:25,220 --> 00:40:28,446
+But the types of numbers that you, as
+a consumer, might care about, really,
+
+807
+00:40:28,446 --> 00:40:30,320
+would be how big the
+disk in your computer is
+
+808
+00:40:30,320 --> 00:40:32,929
+and how much data and programs
+and files you can store,
+
+809
+00:40:32,929 --> 00:40:34,220
+how much RAM your computer has.
+
+810
+00:40:34,220 --> 00:40:36,620
+Because that correlates
+with just how much work
+
+811
+00:40:36,620 --> 00:40:38,860
+you can do at once, how
+many files and programs you
+
+812
+00:40:38,860 --> 00:40:42,150
+can keep running simultaneously
+without having to quit any of them.
+
+813
+00:40:42,150 --> 00:40:45,530
+And so cache, finally,
+which is more closely
+
+814
+00:40:45,530 --> 00:40:49,080
+tied to the CPU and the motherboard
+in your computer and, therefore,
+
+815
+00:40:49,080 --> 00:40:52,310
+isn't really a number you have as
+much control over as the consumer,
+
+816
+00:40:52,310 --> 00:40:55,430
+just ensures that the
+data is actually ready.
+
+817
+00:40:55,430 --> 00:40:57,460
+Now this might all
+sound fairly technical.
+
+818
+00:40:57,460 --> 00:41:00,920
+But these caches, whether
+Level 3 or 2 or 1 are actually
+
+819
+00:41:00,920 --> 00:41:03,930
+quite similar to techniques that
+we humans use in the real world,
+
+820
+00:41:03,930 --> 00:41:07,900
+for instance, even at
+your local candy store.
+
+821
+00:41:07,900 --> 00:41:10,000
+Here's my candy store,
+and I'm open for business.
+
+822
+00:41:10,000 --> 00:41:12,560
+
+
+823
+00:41:12,560 --> 00:41:13,580
+SPEAKER: Candy, please?
+
+824
+00:41:13,580 --> 00:41:15,330
+DAVID J. MALAN: Let
+me get you some candy.
+
+825
+00:41:15,330 --> 00:41:16,950
+[FOOTSTEPS]
+
+826
+00:41:16,950 --> 00:41:22,081
+
+
+827
+00:41:22,081 --> 00:41:22,580
+Thank you.
+
+828
+00:41:22,580 --> 00:41:24,516
+Come again.
+
+829
+00:41:24,516 --> 00:41:26,890
+Now that was not very efficient
+to have to go all the way
+
+830
+00:41:26,890 --> 00:41:29,030
+and back into the store
+room to get the candy.
+
+831
+00:41:29,030 --> 00:41:31,970
+Much more efficient would
+be to keep it closer to me
+
+832
+00:41:31,970 --> 00:41:36,470
+in a place that's faster to access
+much like a cache of candy right here
+
+833
+00:41:36,470 --> 00:41:37,220
+on the counter.
+
+834
+00:41:37,220 --> 00:41:39,094
+In fact, let me go ahead
+and ready that cash.
+
+835
+00:41:39,094 --> 00:41:41,196
+[FOOTSTEPS]
+
+836
+00:41:41,196 --> 00:41:45,190
+
+
+837
+00:41:45,190 --> 00:41:49,806
+And now, with this cache of candy
+am I open for business again.
+
+838
+00:41:49,806 --> 00:41:51,090
+SPEAKER: Candy, please?
+
+839
+00:41:51,090 --> 00:41:52,173
+DAVID J. MALAN: Thank you.
+
+840
+00:41:52,173 --> 00:41:53,250
+Come again.
+
+841
+00:41:53,250 --> 00:41:55,650
+Now this is a small cache
+of candy, but it's fast.
+
+842
+00:41:55,650 --> 00:41:59,550
+And, with it, can I provide my customers
+or really my CPU with information
+
+843
+00:41:59,550 --> 00:42:00,930
+much more quickly.
+
+844
+00:42:00,930 --> 00:42:03,950
+
+
+845
+00:42:03,950 --> 00:42:07,600
+Now we can actually see the sizes
+of these caches in that same output
+
+846
+00:42:07,600 --> 00:42:10,104
+that we saw earlier
+from Windows and Mac OS.
+
+847
+00:42:10,104 --> 00:42:12,520
+For instance, if we look again
+at the Windows Task Manager
+
+848
+00:42:12,520 --> 00:42:16,330
+and look down here, you can actually
+see that this particular laptop
+
+849
+00:42:16,330 --> 00:42:20,500
+had L1 cache on the order of 128
+kilobytes or thousands of bytes.
+
+850
+00:42:20,500 --> 00:42:25,870
+It had 512 kilobytes of L2 cache,
+and 4 megabytes of L3 cache.
+
+851
+00:42:25,870 --> 00:42:28,940
+Meanwhile, if we take a look at
+that same MacBook Pro from earlier,
+
+852
+00:42:28,940 --> 00:42:34,150
+you'll see that it has 256 kilobytes
+of cache, 4 megabytes of L3 cache,
+
+853
+00:42:34,150 --> 00:42:37,960
+doesn't happen to mention L1 cache, but
+odds are, it's indeed there on the CPU,
+
+854
+00:42:37,960 --> 00:42:40,930
+just not reported by this program.
+
+855
+00:42:40,930 --> 00:42:44,830
+Now what else is inside or
+really outside of a computer?
+
+856
+00:42:44,830 --> 00:42:48,070
+In fact, let's start to take a look
+at things, perhaps, more familiar.
+
+857
+00:42:48,070 --> 00:42:52,630
+Now these are just graphical
+depictions of connectors or sockets
+
+858
+00:42:52,630 --> 00:42:56,290
+on the back of your computer into
+which you might have very well plugged
+
+859
+00:42:56,290 --> 00:42:57,740
+in various devices.
+
+860
+00:42:57,740 --> 00:43:00,610
+In fact, this collection
+of ports here are all
+
+861
+00:43:00,610 --> 00:43:03,310
+related to monitors or displays.
+
+862
+00:43:03,310 --> 00:43:05,800
+So a computer, like a
+desktop computer, tends
+
+863
+00:43:05,800 --> 00:43:07,640
+not to come with a monitor built in.
+
+864
+00:43:07,640 --> 00:43:10,990
+And if it does, indeed not, you might
+need to plug-in an external monitor
+
+865
+00:43:10,990 --> 00:43:13,570
+using something like mini DisplayPort--
+
+866
+00:43:13,570 --> 00:43:16,750
+very commonly found on laptops,
+especially if you want to have,
+
+867
+00:43:16,750 --> 00:43:18,520
+not just your primary
+laptop display, but
+
+868
+00:43:18,520 --> 00:43:21,130
+a secondary, a bigger
+monitor on your desk--
+
+869
+00:43:21,130 --> 00:43:24,040
+DisplayPort, which is the same
+idea, but a larger connector
+
+870
+00:43:24,040 --> 00:43:27,130
+that you might typically have on a
+desktop plugging into a monitor--
+
+871
+00:43:27,130 --> 00:43:30,430
+HDMI, which you might have, not
+only on your laptop or desktop,
+
+872
+00:43:30,430 --> 00:43:34,090
+but possibly even on your TV at home
+because this is also the type of cable
+
+873
+00:43:34,090 --> 00:43:37,660
+that you would use to plug a TV
+into some kind of set-top device
+
+874
+00:43:37,660 --> 00:43:38,530
+in your living room.
+
+875
+00:43:38,530 --> 00:43:39,720
+And then, lastly, VGA--
+
+876
+00:43:39,720 --> 00:43:41,470
+still on the list,
+even though it's super,
+
+877
+00:43:41,470 --> 00:43:45,220
+super old and not nearly as featureful
+as these other technologies.
+
+878
+00:43:45,220 --> 00:43:48,310
+But you'll very often find at
+universities like this and companies
+
+879
+00:43:48,310 --> 00:43:55,030
+that have long had projectors installed
+in their rooms, this older technology,
+
+880
+00:43:55,030 --> 00:43:58,130
+and so it, too, is still pretty common.
+
+881
+00:43:58,130 --> 00:44:01,430
+Now, what else might we want
+to plug into a computer?
+
+882
+00:44:01,430 --> 00:44:05,680
+Well, any number of devices as well-- in
+fact, if you've ever seen this symbol,
+
+883
+00:44:05,680 --> 00:44:09,540
+that means you have a port on your
+computer, desktop or laptop, into which
+
+884
+00:44:09,540 --> 00:44:11,790
+you can plug a whole range of devices.
+
+885
+00:44:11,790 --> 00:44:14,800
+If you've ever needed to plug
+a printer into your computer,
+
+886
+00:44:14,800 --> 00:44:19,150
+you might use the port label with
+this-- a scanner, a digital camera,
+
+887
+00:44:19,150 --> 00:44:23,080
+any number of other peripheral devices
+might be connected to your computer
+
+888
+00:44:23,080 --> 00:44:24,490
+by way of this device here.
+
+889
+00:44:24,490 --> 00:44:27,480
+Even your mouse and your keyboard,
+if they're not already wireless,
+
+890
+00:44:27,480 --> 00:44:29,560
+would be plugged in
+with this device here.
+
+891
+00:44:29,560 --> 00:44:31,889
+And it might actually
+take any number of shapes,
+
+892
+00:44:31,889 --> 00:44:34,430
+though thankfully, some of these
+are more common than others.
+
+893
+00:44:34,430 --> 00:44:36,360
+This is the universal serial bus--
+
+894
+00:44:36,360 --> 00:44:38,740
+where a bus as a term
+technologically that
+
+895
+00:44:38,740 --> 00:44:42,670
+refers to some kind of medium along
+which data can travel, much like a bus
+
+896
+00:44:42,670 --> 00:44:44,080
+travels down a street.
+
+897
+00:44:44,080 --> 00:44:48,430
+So USB has a whole bunch of different
+connectors as depicted here.
+
+898
+00:44:48,430 --> 00:44:51,190
+And the most common of which is
+just this rectangular one that,
+
+899
+00:44:51,190 --> 00:44:54,820
+rather annoyingly, only 50% of the
+time do you, if you're like me,
+
+900
+00:44:54,820 --> 00:44:59,170
+plug the cable in the right way because
+it can only go in one certain way.
+
+901
+00:44:59,170 --> 00:45:00,670
+So you might have to flip it around.
+
+902
+00:45:00,670 --> 00:45:03,045
+But on the other end of that
+cable might be another type,
+
+903
+00:45:03,045 --> 00:45:07,660
+not USB A, but USB B,
+which is commonly used
+
+904
+00:45:07,660 --> 00:45:10,780
+to plug into the back of
+scanners and printers and beyond.
+
+905
+00:45:10,780 --> 00:45:14,290
+More recently, though, have
+companies like Apples and others
+
+906
+00:45:14,290 --> 00:45:16,360
+started using using USB C--
+
+907
+00:45:16,360 --> 00:45:20,620
+a third type of connector that,
+thankfully, can go either top down
+
+908
+00:45:20,620 --> 00:45:23,980
+or bottom up, thereby, not
+having to think as much when
+
+909
+00:45:23,980 --> 00:45:25,340
+you want to plug in a device.
+
+910
+00:45:25,340 --> 00:45:28,423
+But there's any number of other variants
+of these connectors commonly seen
+
+911
+00:45:28,423 --> 00:45:32,530
+on cell phones, in fact, for chargers
+and data cables, all of which support
+
+912
+00:45:32,530 --> 00:45:33,430
+USB.
+
+913
+00:45:33,430 --> 00:45:36,010
+Now the USB standard, itself,
+has evolved over time.
+
+914
+00:45:36,010 --> 00:45:39,670
+So the latest and greatest version
+of USB devices and connectors
+
+915
+00:45:39,670 --> 00:45:43,630
+are actually much faster than some
+of the historically older devices
+
+916
+00:45:43,630 --> 00:45:44,230
+and cables.
+
+917
+00:45:44,230 --> 00:45:47,140
+And so it actually does matter
+what kind of cable you have
+
+918
+00:45:47,140 --> 00:45:50,620
+and what device you have as to
+whether or not it will transfer data
+
+919
+00:45:50,620 --> 00:45:52,090
+as fast as you might like.
+
+920
+00:45:52,090 --> 00:45:53,390
+Now why is this important?
+
+921
+00:45:53,390 --> 00:45:58,300
+Well, one of the devices you can connect
+to a computer, typically via USB cable,
+
+922
+00:45:58,300 --> 00:46:00,130
+is something like an
+external hard drive.
+
+923
+00:46:00,130 --> 00:46:03,520
+And even if you have a super
+fast external hard drive that
+
+924
+00:46:03,520 --> 00:46:06,580
+is, say, an SSD underneath
+the hood, if you're
+
+925
+00:46:06,580 --> 00:46:09,212
+using a slower older
+USB cable or technology,
+
+926
+00:46:09,212 --> 00:46:11,170
+you might not, nonetheless,
+be able to transfer
+
+927
+00:46:11,170 --> 00:46:15,490
+that data off a very fast device
+over a slow cable to your computer.
+
+928
+00:46:15,490 --> 00:46:19,720
+So keeping an eye out for the latest
+versions of these technologies like USB
+
+929
+00:46:19,720 --> 00:46:21,880
+can actually be quite important.
+
+930
+00:46:21,880 --> 00:46:25,300
+But, of course, you might not need
+cables at all for certain devices.
+
+931
+00:46:25,300 --> 00:46:28,810
+Of course, if you want to use Wi-Fi
+or wireless internet in your home,
+
+932
+00:46:28,810 --> 00:46:32,770
+in the airport, in Starbucks,
+or elsewhere, your computer just
+
+933
+00:46:32,770 --> 00:46:36,082
+needs to support Wi-Fi, which odds
+are, it very much does these days.
+
+934
+00:46:36,082 --> 00:46:38,290
+And you might see a symbol
+somewhere in your computer
+
+935
+00:46:38,290 --> 00:46:40,450
+like this depicting as much.
+
+936
+00:46:40,450 --> 00:46:43,030
+But not everything operates over Wi-Fi.
+
+937
+00:46:43,030 --> 00:46:46,960
+In fact, devices that you might want to
+plug into or connect to your computer
+
+938
+00:46:46,960 --> 00:46:49,600
+without a cable would
+tend to use not Wi-Fi,
+
+939
+00:46:49,600 --> 00:46:52,000
+but another wireless
+technology called Bluetooth
+
+940
+00:46:52,000 --> 00:46:55,819
+that Windows computers and
+Macs alike support these days.
+
+941
+00:46:55,819 --> 00:46:57,610
+So in fact, if you have
+a wireless keyboard
+
+942
+00:46:57,610 --> 00:47:00,610
+at home or at work, or a
+wireless mouse, or if you
+
+943
+00:47:00,610 --> 00:47:04,600
+have any number of other devices that,
+somehow, are wirelessly communicating
+
+944
+00:47:04,600 --> 00:47:08,076
+with your computer, perhaps even
+your headphones these days, odds are,
+
+945
+00:47:08,076 --> 00:47:10,450
+those are using a technology
+called Bluetooth, which have
+
+946
+00:47:10,450 --> 00:47:12,860
+a limited range of just so many feeds.
+
+947
+00:47:12,860 --> 00:47:15,850
+
+
+948
+00:47:15,850 --> 00:47:19,030
+They don't afford you nearly as much
+distance as something like Wi-Fi does,
+
+949
+00:47:19,030 --> 00:47:20,160
+but that's a good thing.
+
+950
+00:47:20,160 --> 00:47:21,910
+Because generally,
+this technology is used
+
+951
+00:47:21,910 --> 00:47:25,420
+to interconnect your personal
+devices to your personal computer
+
+952
+00:47:25,420 --> 00:47:28,510
+and not really to others around you.
+
+953
+00:47:28,510 --> 00:47:31,660
+So with all of these various
+devices inside of and, potentially,
+
+954
+00:47:31,660 --> 00:47:33,741
+connected outside of
+my computer, what is
+
+955
+00:47:33,741 --> 00:47:35,865
+it that ensures that they
+can all intercommunicate?
+
+956
+00:47:35,865 --> 00:47:38,280
+And what is it that ensures
+that all of this works?
+
+957
+00:47:38,280 --> 00:47:40,280
+Well, at the end of the
+day it's the, so-called,
+
+958
+00:47:40,280 --> 00:47:43,000
+operating system whether
+it's Mac OS or Windows,
+
+959
+00:47:43,000 --> 00:47:46,090
+which is simply software, that
+either you or, more likely,
+
+960
+00:47:46,090 --> 00:47:49,630
+some manufacturer pre-installed
+on the computer that you bought.
+
+961
+00:47:49,630 --> 00:47:53,020
+And that software is installed on your
+hard drive or your solid state disk
+
+962
+00:47:53,020 --> 00:47:54,576
+so that it's there persistently.
+
+963
+00:47:54,576 --> 00:47:56,950
+And so that, even when you
+unwrap that shrink-wrapped box
+
+964
+00:47:56,950 --> 00:48:00,130
+that has had no power for some time,
+the operating system is ready to go.
+
+965
+00:48:00,130 --> 00:48:03,004
+And, indeed, when you hit the power
+button on your laptop or desktop,
+
+966
+00:48:03,004 --> 00:48:07,870
+it's the operating system, ultimately,
+that is loaded into RAM from disk,
+
+967
+00:48:07,870 --> 00:48:09,649
+and is what you ultimately see.
+
+968
+00:48:09,649 --> 00:48:12,190
+In fact, it's the operating
+system that gives you, literally,
+
+969
+00:48:12,190 --> 00:48:14,710
+the graphical windows that you
+see and the icons and the buttons
+
+970
+00:48:14,710 --> 00:48:15,550
+that you can click.
+
+971
+00:48:15,550 --> 00:48:17,920
+But more importantly,
+it's the operating system
+
+972
+00:48:17,920 --> 00:48:20,562
+that knows how to talk to
+your keyboard and your mouse.
+
+973
+00:48:20,562 --> 00:48:22,270
+It's your operating
+system that knows how
+
+974
+00:48:22,270 --> 00:48:23,922
+to display information on the screen.
+
+975
+00:48:23,922 --> 00:48:25,630
+It's your operating
+system that knows how
+
+976
+00:48:25,630 --> 00:48:29,080
+to move things around in memory
+and disk and reading and writing
+
+977
+00:48:29,080 --> 00:48:30,577
+all of that information.
+
+978
+00:48:30,577 --> 00:48:33,160
+And that's all thanks to software
+that comes with an operating
+
+979
+00:48:33,160 --> 00:48:35,200
+system called device drivers--
+
+980
+00:48:35,200 --> 00:48:39,280
+special software designed to talk
+to a certain model of printer,
+
+981
+00:48:39,280 --> 00:48:42,149
+to a certain model of camera,
+or scanner, and the like.
+
+982
+00:48:42,149 --> 00:48:45,190
+And, in fact, even when Windows or
+Mac OS or Linux or any other operating
+
+983
+00:48:45,190 --> 00:48:49,000
+system doesn't recognize some device--
+maybe because it didn't exist when
+
+984
+00:48:49,000 --> 00:48:52,759
+Windows or Mac OS or Linux was
+installed on your computer--
+
+985
+00:48:52,759 --> 00:48:55,300
+well, you can very often download
+new software device drivers
+
+986
+00:48:55,300 --> 00:48:58,210
+from the manufacturer's website
+of the manufacturer that
+
+987
+00:48:58,210 --> 00:48:59,660
+made that new technology.
+
+988
+00:48:59,660 --> 00:49:03,310
+And that can teach Windows and
+Mac OS and Linux and others
+
+989
+00:49:03,310 --> 00:49:04,980
+to understand that new hardware.
+
+990
+00:49:04,980 --> 00:49:08,500
+And so there is a future-proofing
+built into these operating systems
+
+991
+00:49:08,500 --> 00:49:10,930
+because, at the end of the
+day, they're just software.
+
+992
+00:49:10,930 --> 00:49:13,180
+And so it's this intersection
+of hardware and software
+
+993
+00:49:13,180 --> 00:49:16,360
+that makes these computers
+just so powerful.
+
+994
+00:49:16,360 --> 00:49:19,570
+Now, it's all fun and good
+to talk about hardware
+
+995
+00:49:19,570 --> 00:49:21,430
+and see it depicted on the screen.
+
+996
+00:49:21,430 --> 00:49:24,580
+But let's actually get our hands
+dirty here and actually enter
+
+997
+00:49:24,580 --> 00:49:27,640
+into our own laboratory and
+take a look on the outside
+
+998
+00:49:27,640 --> 00:49:31,210
+and inside of some actual computers.
+
+999
+00:49:31,210 --> 00:49:35,054
+I'm here now with Dr. Colton Ogden for
+a look inside a couple of computers.
+
+1000
+00:49:35,054 --> 00:49:36,970
+COLTON OGDEN: Happy to
+be with you guys today.
+
+1001
+00:49:36,970 --> 00:49:39,757
+We have an IBM ThinkPad laptop here.
+
+1002
+00:49:39,757 --> 00:49:41,340
+Nobody really needs to use it anymore.
+
+1003
+00:49:41,340 --> 00:49:44,381
+So I figured we'd show you guys what
+a computer looks like on the outside
+
+1004
+00:49:44,381 --> 00:49:46,610
+before we start digging
+in on the inside.
+
+1005
+00:49:46,610 --> 00:49:49,810
+So you want to start off by maybe
+showing what some of these ports
+
+1006
+00:49:49,810 --> 00:49:50,800
+are here on the laptop?
+
+1007
+00:49:50,800 --> 00:49:51,020
+DAVID J. MALAN: Yeah.
+
+1008
+00:49:51,020 --> 00:49:51,520
+Sure.
+
+1009
+00:49:51,520 --> 00:49:53,020
+So here's one of those older ports.
+
+1010
+00:49:53,020 --> 00:49:54,561
+And, indeed, this is an older laptop.
+
+1011
+00:49:54,561 --> 00:49:58,300
+This is a so-called VGA port into which
+you would plug a cable to connect it,
+
+1012
+00:49:58,300 --> 00:50:01,090
+either to an external monitor, or
+more realistically, on a campus
+
+1013
+00:50:01,090 --> 00:50:02,120
+or in a workplace.
+
+1014
+00:50:02,120 --> 00:50:04,660
+It's like a projector so
+that other people can see.
+
+1015
+00:50:04,660 --> 00:50:08,870
+If you can believe it, this is an RJ11
+jack for an old school modem or a phone
+
+1016
+00:50:08,870 --> 00:50:09,370
+cable.
+
+1017
+00:50:09,370 --> 00:50:12,130
+So that you could
+actually dial up to AOL.
+
+1018
+00:50:12,130 --> 00:50:13,360
+COLTON OGDEN: Old school.
+
+1019
+00:50:13,360 --> 00:50:15,460
+DAVID J.MALAN: Here's
+an RJ45 connector, which
+
+1020
+00:50:15,460 --> 00:50:19,150
+actually looks like this here,
+as sort of a fat network cable.
+
+1021
+00:50:19,150 --> 00:50:22,780
+And that's what you would use to
+get online with wired internet.
+
+1022
+00:50:22,780 --> 00:50:26,320
+Here, we have a microphone jack, if you
+have an external mic, headphone jack
+
+1023
+00:50:26,320 --> 00:50:30,640
+if you want to listen to
+music at work, USB to connect
+
+1024
+00:50:30,640 --> 00:50:32,710
+any number of external devices.
+
+1025
+00:50:32,710 --> 00:50:33,220
+And oh.
+
+1026
+00:50:33,220 --> 00:50:34,740
+What's this one we've got over here?
+
+1027
+00:50:34,740 --> 00:50:37,090
+COLTON OGDEN: It looks
+like we've got a DVD port.
+
+1028
+00:50:37,090 --> 00:50:38,340
+You don't see these very often anymore.
+
+1029
+00:50:38,340 --> 00:50:40,381
+It's not going to work
+because the laptop is off.
+
+1030
+00:50:40,381 --> 00:50:42,770
+But we also have a couple of
+USB ports here on the side.
+
+1031
+00:50:42,770 --> 00:50:45,160
+And I think that's pretty
+much all we have on this guy.
+
+1032
+00:50:45,160 --> 00:50:45,270
+DAVID J. MALAN: Yeah.
+
+1033
+00:50:45,270 --> 00:50:48,130
+A DVD or CD drive is what's
+known as optical storage.
+
+1034
+00:50:48,130 --> 00:50:51,400
+And it really is just a piece
+of plastic, the CD or DVD,
+
+1035
+00:50:51,400 --> 00:50:54,550
+with some reflective material on
+it and little divots or pits that
+
+1036
+00:50:54,550 --> 00:50:57,460
+are created with a laser that
+gets, then, read with the laser
+
+1037
+00:50:57,460 --> 00:50:59,920
+so that you can actually
+write 0s and 1s by,
+
+1038
+00:50:59,920 --> 00:51:02,470
+essentially, having a smooth
+surface or little bumps.
+
+1039
+00:51:02,470 --> 00:51:06,620
+But it's increasingly falling into
+disuse as Flash Media of various sorts
+
+1040
+00:51:06,620 --> 00:51:07,960
+is being used instead.
+
+1041
+00:51:07,960 --> 00:51:10,030
+Well, why don't we not
+gut this, although, I do
+
+1042
+00:51:10,030 --> 00:51:12,340
+see it's power cable sitting here.
+
+1043
+00:51:12,340 --> 00:51:16,030
+So you'll notice that most laptops
+like this have power cables that one
+
+1044
+00:51:16,030 --> 00:51:19,030
+go into the wall, then some other
+proprietary or standard connector that
+
+1045
+00:51:19,030 --> 00:51:20,590
+goes into the laptop, and then a brick.
+
+1046
+00:51:20,590 --> 00:51:22,173
+Sometimes that gets a little bit warm.
+
+1047
+00:51:22,173 --> 00:51:24,430
+And what this brick is
+doing is it's actually
+
+1048
+00:51:24,430 --> 00:51:28,450
+converting the 120 volts or 240
+volts coming out of your wall
+
+1049
+00:51:28,450 --> 00:51:32,620
+to far fewer volts that your
+laptop can actually tolerate.
+
+1050
+00:51:32,620 --> 00:51:34,720
+Shall we take a look
+at the desktop next?
+
+1051
+00:51:34,720 --> 00:51:35,080
+COLTON OGDEN: Yeah.
+
+1052
+00:51:35,080 --> 00:51:35,440
+Perfect.
+
+1053
+00:51:35,440 --> 00:51:38,689
+So let's go ahead and take a look at the
+internals of a computer with this guy
+
+1054
+00:51:38,689 --> 00:51:39,550
+here.
+
+1055
+00:51:39,550 --> 00:51:44,240
+So I'm going to go ahead and just
+take off the casing's lid here.
+
+1056
+00:51:44,240 --> 00:51:46,040
+DAVID J. MALAN: And
+this is an older PC--
+
+1057
+00:51:46,040 --> 00:51:46,320
+COLTON OGDEN: Yes.
+
+1058
+00:51:46,320 --> 00:51:46,870
+DAVID J. MALAN: --desktop right?
+
+1059
+00:51:46,870 --> 00:51:48,400
+An older Windows PC.
+
+1060
+00:51:48,400 --> 00:51:51,517
+And so you find that Mac computers
+aren't so readily taken apart.
+
+1061
+00:51:51,517 --> 00:51:53,350
+In fact, that's one of
+the features of Apple
+
+1062
+00:51:53,350 --> 00:51:55,945
+computers is that they have far
+fewer user serviceable parts,
+
+1063
+00:51:55,945 --> 00:51:57,820
+but the price you pay,
+of course, is that you
+
+1064
+00:51:57,820 --> 00:52:00,605
+can't upgrade them or reconfigure
+them, often using magnets to.
+
+1065
+00:52:00,605 --> 00:52:01,480
+COLTON OGDEN: Indeed.
+
+1066
+00:52:01,480 --> 00:52:01,890
+DAVID J. MALAN: All right.
+
+1067
+00:52:01,890 --> 00:52:03,300
+So what do we have inside of here?
+
+1068
+00:52:03,300 --> 00:52:03,530
+COLTON OGDEN: OK.
+
+1069
+00:52:03,530 --> 00:52:05,570
+So we have, in here, a lot
+of the parts you were just
+
+1070
+00:52:05,570 --> 00:52:06,820
+talking about in your lecture.
+
+1071
+00:52:06,820 --> 00:52:09,724
+We have a CPU with its heat
+sink here, right in the middle.
+
+1072
+00:52:09,724 --> 00:52:11,390
+DAVID J. MALAN: That's a huge heat sink.
+
+1073
+00:52:11,390 --> 00:52:12,225
+And that does what?
+
+1074
+00:52:12,225 --> 00:52:13,600
+COLTON OGDEN: It dissipates heat.
+
+1075
+00:52:13,600 --> 00:52:14,870
+A CPU is very hot.
+
+1076
+00:52:14,870 --> 00:52:16,370
+It's oscillating very fast.
+
+1077
+00:52:16,370 --> 00:52:20,780
+And so the purpose of this is to,
+with all of these planes, disperse
+
+1078
+00:52:20,780 --> 00:52:25,070
+the heat equally and then get
+rid of it alongside the fan
+
+1079
+00:52:25,070 --> 00:52:26,850
+as well, which acts in tandem with it.
+
+1080
+00:52:26,850 --> 00:52:27,020
+DAVID J. MALAN: Yeah.
+
+1081
+00:52:27,020 --> 00:52:29,120
+It's a big fan, like you
+would have in the summertime.
+
+1082
+00:52:29,120 --> 00:52:29,600
+COLTON OGDEN: Oh, yeah.
+
+1083
+00:52:29,600 --> 00:52:30,101
+Definitely.
+
+1084
+00:52:30,101 --> 00:52:31,183
+DAVID J. MALAN: All right.
+
+1085
+00:52:31,183 --> 00:52:32,660
+And what about these green sticks?
+
+1086
+00:52:32,660 --> 00:52:34,550
+COLTON OGDEN: These green sticks,
+we only have one in this laptop.
+
+1087
+00:52:34,550 --> 00:52:37,460
+But this is actually a stick
+of RAM, so random access memory
+
+1088
+00:52:37,460 --> 00:52:39,909
+where computers' programs
+are stored as they're loaded.
+
+1089
+00:52:39,909 --> 00:52:40,700
+DAVID J. MALAN: OK.
+
+1090
+00:52:40,700 --> 00:52:43,476
+And that's connected to this
+bigger green sheet, which is--
+
+1091
+00:52:43,476 --> 00:52:45,850
+COLTON OGDEN: This bigger
+green sheet is the motherboard.
+
+1092
+00:52:45,850 --> 00:52:47,930
+It's sort of like the
+central hub for all the parts
+
+1093
+00:52:47,930 --> 00:52:49,388
+working together with the computer.
+
+1094
+00:52:49,388 --> 00:52:51,860
+It acts as sort of a messaging
+interface for everything.
+
+1095
+00:52:51,860 --> 00:52:52,120
+DAVID J. MALAN: OK.
+
+1096
+00:52:52,120 --> 00:52:54,590
+And now, doctor, can I take
+a look at that piece of RAM?
+
+1097
+00:52:54,590 --> 00:52:55,230
+Do you need it?
+
+1098
+00:52:55,230 --> 00:52:55,790
+COLTON OGDEN: Absolutely.
+
+1099
+00:52:55,790 --> 00:52:55,920
+No.
+
+1100
+00:52:55,920 --> 00:52:56,930
+Let's take it out of here.
+
+1101
+00:52:56,930 --> 00:52:57,110
+DAVID J. MALAN: All right.
+
+1102
+00:52:57,110 --> 00:52:58,745
+So that just snaps right out.
+
+1103
+00:52:58,745 --> 00:52:59,350
+COLTON OGDEN: Snaps right out.
+
+1104
+00:52:59,350 --> 00:53:00,141
+DAVID J. MALAN: Ah.
+
+1105
+00:53:00,141 --> 00:53:03,242
+So it looks pretty much like
+the image we had earlier
+
+1106
+00:53:03,242 --> 00:53:05,200
+with a bunch of black
+chips here, each of which
+
+1107
+00:53:05,200 --> 00:53:07,950
+store some number of megabytes
+or gigabytes probably.
+
+1108
+00:53:07,950 --> 00:53:10,700
+And then the little gold pin, so
+to speak, that could actually get
+
+1109
+00:53:10,700 --> 00:53:11,120
+plugged in.
+
+1110
+00:53:11,120 --> 00:53:12,420
+And they can only go a certain way.
+
+1111
+00:53:12,420 --> 00:53:15,020
+In fact, I've done this blindly
+before where I've accidentally
+
+1112
+00:53:15,020 --> 00:53:18,020
+plugged it in the wrong way, only to
+realize, it actually goes this way.
+
+1113
+00:53:18,020 --> 00:53:20,595
+And that's why this little
+divot here is asymmetric.
+
+1114
+00:53:20,595 --> 00:53:21,470
+COLTON OGDEN: Indeed.
+
+1115
+00:53:21,470 --> 00:53:23,640
+DAVID J. MALAN: I'm
+done with this, doctor.
+
+1116
+00:53:23,640 --> 00:53:24,140
+OK.
+
+1117
+00:53:24,140 --> 00:53:25,070
+We're not going to put that back in.
+
+1118
+00:53:25,070 --> 00:53:27,200
+And what's this big thing
+in the back of a PC?
+
+1119
+00:53:27,200 --> 00:53:29,377
+COLTON OGDEN: So this is
+the Power Supply or PSU.
+
+1120
+00:53:29,377 --> 00:53:32,460
+It essentially just powers everything
+up with electricity in the computer.
+
+1121
+00:53:32,460 --> 00:53:32,800
+DAVID J. MALAN: I see.
+
+1122
+00:53:32,800 --> 00:53:35,330
+And so if this is the extent
+to which you've actually
+
+1123
+00:53:35,330 --> 00:53:38,038
+played with the inside of your
+computer before-- this, of course,
+
+1124
+00:53:38,038 --> 00:53:39,081
+is the power cable.
+
+1125
+00:53:39,081 --> 00:53:42,080
+And this is actually a standardized
+plug that goes back into the device.
+
+1126
+00:53:42,080 --> 00:53:44,860
+You can actually use this or any number
+of other cables on your own computer.
+
+1127
+00:53:44,860 --> 00:53:45,310
+COLTON OGDEN: Indeed.
+
+1128
+00:53:45,310 --> 00:53:45,470
+DAVID J. MALAN: All right.
+
+1129
+00:53:45,470 --> 00:53:48,590
+So where is my data stored
+when not in RAM persistently?
+
+1130
+00:53:48,590 --> 00:53:52,170
+COLTON OGDEN: When not in RAM, you have,
+here, an external Hard Drive, an HDB,
+
+1131
+00:53:52,170 --> 00:53:53,920
+or an internal hard
+drive in this context.
+
+1132
+00:53:53,920 --> 00:53:54,711
+DAVID J. MALAN: OK.
+
+1133
+00:53:54,711 --> 00:53:58,341
+So this is older and bigger
+probably than something like an SSD?
+
+1134
+00:53:58,341 --> 00:53:59,090
+COLTON OGDEN: Yes.
+
+1135
+00:53:59,090 --> 00:54:04,579
+Older and larger, but probably stores
+less since this is an older computer.
+
+1136
+00:54:04,579 --> 00:54:07,620
+And it's connected to the motherboard
+using what's called the SATA cable,
+
+1137
+00:54:07,620 --> 00:54:09,560
+S-A-T-A, which hooks right
+into the motherboard.
+
+1138
+00:54:09,560 --> 00:54:09,890
+DAVID J. MALAN: Oh, yeah.
+
+1139
+00:54:09,890 --> 00:54:12,210
+Can we can we pull that out
+without that much damage here?
+
+1140
+00:54:12,210 --> 00:54:12,600
+COLTON OGDEN: Yeah.
+
+1141
+00:54:12,600 --> 00:54:13,099
+Absolutely.
+
+1142
+00:54:13,099 --> 00:54:16,129
+So it's a pretty small cable, it plugs
+right into the motherboard there.
+
+1143
+00:54:16,129 --> 00:54:16,920
+DAVID J. MALAN: Ah.
+
+1144
+00:54:16,920 --> 00:54:17,555
+OK.
+
+1145
+00:54:17,555 --> 00:54:21,980
+So it's got kind of a nice angled shape
+so that it only goes, in it would seem,
+
+1146
+00:54:21,980 --> 00:54:22,690
+one way.
+
+1147
+00:54:22,690 --> 00:54:23,190
+All right.
+
+1148
+00:54:23,190 --> 00:54:25,100
+And actually, it looks like
+a different type of cable
+
+1149
+00:54:25,100 --> 00:54:26,360
+is used for this older technology.
+
+1150
+00:54:26,360 --> 00:54:28,230
+We seem to have another
+DVD or CD drive up there?
+
+1151
+00:54:28,230 --> 00:54:28,700
+COLTON OGDEN: We do.
+
+1152
+00:54:28,700 --> 00:54:29,200
+We do.
+
+1153
+00:54:29,200 --> 00:54:31,220
+We have a DVD drive.
+
+1154
+00:54:31,220 --> 00:54:33,050
+And actually it does you SATA as well.
+
+1155
+00:54:33,050 --> 00:54:33,462
+DAVID J. MALAN: Oh, Yes.
+
+1156
+00:54:33,462 --> 00:54:34,980
+COLTON OGDEN: It plugs right
+in with the hard drives.
+
+1157
+00:54:34,980 --> 00:54:35,260
+DAVID J. MALAN: Oh.
+
+1158
+00:54:35,260 --> 00:54:37,450
+But it has a special power
+cable that drives that.
+
+1159
+00:54:37,450 --> 00:54:38,200
+COLTON OGDEN: Yep.
+
+1160
+00:54:38,200 --> 00:54:38,330
+Exactly.
+
+1161
+00:54:38,330 --> 00:54:40,496
+DAVID J. MALAN: --just like
+the hard drive does too.
+
+1162
+00:54:40,496 --> 00:54:43,050
+So actually, we have,
+in advance, taken apart
+
+1163
+00:54:43,050 --> 00:54:46,875
+and 3.5 inch mechanical hard
+drive that you previously
+
+1164
+00:54:46,875 --> 00:54:49,250
+had a whole bunch of screws
+on it and probably previously
+
+1165
+00:54:49,250 --> 00:54:50,902
+had a whole bunch of data on it.
+
+1166
+00:54:50,902 --> 00:54:52,610
+But now that we've
+exposed it to the air,
+
+1167
+00:54:52,610 --> 00:54:55,100
+and therefore all of the dust
+particles here in the theater,
+
+1168
+00:54:55,100 --> 00:54:57,058
+probably not going to be
+very reliable anymore.
+
+1169
+00:54:57,058 --> 00:55:00,680
+But what's really cool now is that
+we took off all but one of the screws
+
+1170
+00:55:00,680 --> 00:55:04,890
+so we can actually pull this off.
+
+1171
+00:55:04,890 --> 00:55:09,570
+And you can see what's been inside your
+own hard drive perhaps all this time.
+
+1172
+00:55:09,570 --> 00:55:12,080
+So this is, again, is 3
+and 1/2 inches across,
+
+1173
+00:55:12,080 --> 00:55:15,680
+which is a standard size, at least, for
+these older larger mechanical drives.
+
+1174
+00:55:15,680 --> 00:55:18,530
+There's also a 2.5 inch version
+of this commonly found in laptops
+
+1175
+00:55:18,530 --> 00:55:21,020
+or even higher-end desktops these days.
+
+1176
+00:55:21,020 --> 00:55:23,870
+And there's that mechanical arm
+that won't move now because there's
+
+1177
+00:55:23,870 --> 00:55:25,220
+no power going into this.
+
+1178
+00:55:25,220 --> 00:55:28,370
+But if there were, we'd be plugging
+it in to the back of the device
+
+1179
+00:55:28,370 --> 00:55:32,030
+here and then that SATA cable,
+which actually runs the power.
+
+1180
+00:55:32,030 --> 00:55:35,840
+And how many-- it looks like
+there's two platters here.
+
+1181
+00:55:35,840 --> 00:55:36,410
+Two platters.
+
+1182
+00:55:36,410 --> 00:55:38,810
+So the data store probably
+on the top, on the bottom,
+
+1183
+00:55:38,810 --> 00:55:40,876
+and then on the other
+top, and the other bottom,
+
+1184
+00:55:40,876 --> 00:55:42,500
+thereby fitting even more data in here.
+
+1185
+00:55:42,500 --> 00:55:44,360
+And if this were an even
+newer bigger hard drive,
+
+1186
+00:55:44,360 --> 00:55:47,060
+we could probably fit even more
+platters, and therefore more data.
+
+1187
+00:55:47,060 --> 00:55:49,790
+And increasingly, is the data being
+stored closer and closer together,
+
+1188
+00:55:49,790 --> 00:55:52,490
+so all those magnetic particles
+are packed ever more densely,
+
+1189
+00:55:52,490 --> 00:55:54,590
+which also means we can
+store more bits and thus
+
+1190
+00:55:54,590 --> 00:55:56,881
+bytes and thus files and programs.
+
+1191
+00:55:56,881 --> 00:55:57,380
+All right.
+
+1192
+00:55:57,380 --> 00:56:00,090
+So what we also have here a motherboard.
+
+1193
+00:56:00,090 --> 00:56:02,700
+Can we take a closer look
+at this outside of the box?
+
+1194
+00:56:02,700 --> 00:56:03,825
+COLTON OGDEN: Yes.
+
+1195
+00:56:03,825 --> 00:56:06,200
+DAVID J. MALAN: So this one
+looks a little bit different.
+
+1196
+00:56:06,200 --> 00:56:08,540
+And, in fact, I don't see a CPU.
+
+1197
+00:56:08,540 --> 00:56:09,589
+Where's our CPU gone?
+
+1198
+00:56:09,589 --> 00:56:11,630
+COLTON OGDEN: Well, this
+one does not have a CPU.
+
+1199
+00:56:11,630 --> 00:56:12,921
+It's been taken out in advance.
+
+1200
+00:56:12,921 --> 00:56:15,440
+But most of the other components
+are still in place here.
+
+1201
+00:56:15,440 --> 00:56:18,811
+We have RAM, we have a heat sink,
+and we have a lot of other ports
+
+1202
+00:56:18,811 --> 00:56:21,560
+and such that we've seen on the
+other motherboard and was looking.
+
+1203
+00:56:21,560 --> 00:56:23,870
+DAVID J. MALAN: And these internal
+ports, what gets plugged into those?
+
+1204
+00:56:23,870 --> 00:56:25,550
+COLTON OGDEN: So these are PCI slots.
+
+1205
+00:56:25,550 --> 00:56:28,580
+You'll see oftentimes
+graphics cards, sound cards--
+
+1206
+00:56:28,580 --> 00:56:31,880
+other things that aren't
+necessarily always with a computer,
+
+1207
+00:56:31,880 --> 00:56:34,339
+but are optional-- those get
+plugged into these ports here.
+
+1208
+00:56:34,339 --> 00:56:37,546
+DAVID J. MALAN: And it looks like if we
+plug this into the back of a computer
+
+1209
+00:56:37,546 --> 00:56:40,520
+just right, these things should stick
+out the back of the plastic case?
+
+1210
+00:56:40,520 --> 00:56:40,850
+COLTON OGDEN: Yes.
+
+1211
+00:56:40,850 --> 00:56:43,040
+These are ports that
+are often user-facing,
+
+1212
+00:56:43,040 --> 00:56:48,230
+so you can plug-in peripherals
+such as keyboards, mice,
+
+1213
+00:56:48,230 --> 00:56:53,150
+monitors with VGA ports, maybe
+headphones or speakers with these ports
+
+1214
+00:56:53,150 --> 00:56:57,419
+here, headphones, microphones line
+out, and a few other ports, maybe--
+
+1215
+00:56:57,419 --> 00:57:00,460
+DAVID J. MALAN: Do you want to talk
+to them in some of these older ports?
+
+1216
+00:57:00,460 --> 00:57:01,680
+These are really from my day.
+
+1217
+00:57:01,680 --> 00:57:03,513
+So the parallel port,
+which is where we used
+
+1218
+00:57:03,513 --> 00:57:06,020
+to put our printers or serial ports--
+
+1219
+00:57:06,020 --> 00:57:08,520
+I don't know what voice that
+is-- but our serial ports where
+
+1220
+00:57:08,520 --> 00:57:12,630
+we used to put our joysticks for playing
+the games, a VGA port, of course,
+
+1221
+00:57:12,630 --> 00:57:16,110
+and then a whole bunch of USB
+ports there, which we can actually
+
+1222
+00:57:16,110 --> 00:57:17,370
+take a closer look at a cable.
+
+1223
+00:57:17,370 --> 00:57:20,160
+So here's a common end of a USB cable.
+
+1224
+00:57:20,160 --> 00:57:23,340
+This is Type A, and so that's
+probably the most common type.
+
+1225
+00:57:23,340 --> 00:57:26,457
+But the white plastic on the inside
+suggests that this is an older cable.
+
+1226
+00:57:26,457 --> 00:57:28,290
+If you look at newer
+cables, you'll actually
+
+1227
+00:57:28,290 --> 00:57:31,260
+see that the inside is blue, which
+means its USB 3.0, which generally
+
+1228
+00:57:31,260 --> 00:57:34,230
+means faster, which means you can
+move data back and forth all the more
+
+1229
+00:57:34,230 --> 00:57:34,890
+quickly.
+
+1230
+00:57:34,890 --> 00:57:37,140
+But on the other ends
+of these USB cables--
+
+1231
+00:57:37,140 --> 00:57:39,030
+you see, like the Type
+B connector here--
+
+1232
+00:57:39,030 --> 00:57:42,860
+this is commonly found in the
+back of a printer or a scanner.
+
+1233
+00:57:42,860 --> 00:57:44,565
+So it's a slightly different plug.
+
+1234
+00:57:44,565 --> 00:57:46,840
+It keeps one end
+straight from the other.
+
+1235
+00:57:46,840 --> 00:57:49,440
+But you will actually see
+sometimes smaller cables
+
+1236
+00:57:49,440 --> 00:57:52,110
+like this one here, mini
+or micro USB, commonly
+
+1237
+00:57:52,110 --> 00:57:54,450
+found on phones or just
+smaller devices where
+
+1238
+00:57:54,450 --> 00:57:57,146
+it would be annoying to try to
+plug-in something as big as this.
+
+1239
+00:57:57,146 --> 00:57:59,520
+Well, I think we have just a
+couple of other things here.
+
+1240
+00:57:59,520 --> 00:58:01,362
+Here we have-- this
+came from a computer.
+
+1241
+00:58:01,362 --> 00:58:03,570
+No CPU attached, but this
+is one of those heat sinks?
+
+1242
+00:58:03,570 --> 00:58:04,130
+You were talking about?
+
+1243
+00:58:04,130 --> 00:58:04,963
+COLTON OGDEN: It is.
+
+1244
+00:58:04,963 --> 00:58:07,320
+It's a combo of a heat
+sink and a fan for a CPU.
+
+1245
+00:58:07,320 --> 00:58:08,236
+DAVID J. MALAN: I see.
+
+1246
+00:58:08,236 --> 00:58:11,140
+So Intel Inside might also mean you
+have an Intel fan, it would seem,
+
+1247
+00:58:11,140 --> 00:58:11,790
+and heat sink.
+
+1248
+00:58:11,790 --> 00:58:15,210
+And then lastly, we've got
+one of these things here.
+
+1249
+00:58:15,210 --> 00:58:16,140
+What's this here?
+
+1250
+00:58:16,140 --> 00:58:18,098
+COLTON OGDEN: This is a
+solid state hard drive,
+
+1251
+00:58:18,098 --> 00:58:23,070
+which actually uses flash memory very
+akin to microSDs, if you're familiar.
+
+1252
+00:58:23,070 --> 00:58:24,990
+It's essentially what a hard drive is.
+
+1253
+00:58:24,990 --> 00:58:27,990
+But instead of having a
+movable mechanical arm that
+
+1254
+00:58:27,990 --> 00:58:31,400
+looks at the different bits on
+the platters, as we talked about,
+
+1255
+00:58:31,400 --> 00:58:32,370
+it's almost like RAM.
+
+1256
+00:58:32,370 --> 00:58:35,490
+It's just storing the
+data in electricity,
+
+1257
+00:58:35,490 --> 00:58:37,097
+hence solid state, no moving parts.
+
+1258
+00:58:37,097 --> 00:58:38,430
+DAVID J. MALAN: But permanently.
+
+1259
+00:58:38,430 --> 00:58:39,346
+COLTON OGDEN: But yes.
+
+1260
+00:58:39,346 --> 00:58:41,310
+It's nonvolatile, which
+means, unlike RAM, you
+
+1261
+00:58:41,310 --> 00:58:44,340
+can actually store this whether or not
+you turn your laptop off or whatever.
+
+1262
+00:58:44,340 --> 00:58:44,850
+DAVID J. MALAN: All right.
+
+1263
+00:58:44,850 --> 00:58:46,558
+And it looks like--
+and I'm told I've got
+
+1264
+00:58:46,558 --> 00:58:49,420
+to be extra careful with this--
+this is a 4 terabyte SSD.
+
+1265
+00:58:49,420 --> 00:58:52,300
+So this is a huge amount
+of data, 4 trillion bytes.
+
+1266
+00:58:52,300 --> 00:58:55,050
+So we're just going to
+put this safely over here.
+
+1267
+00:58:55,050 --> 00:58:57,470
+Less expensively, though, we
+have this little USB stick.
+
+1268
+00:58:57,470 --> 00:58:59,757
+It's still 128 gigabytes,
+but it's a little gimmicky.
+
+1269
+00:58:59,757 --> 00:59:01,590
+But this thing slides
+out here, and then you
+
+1270
+00:59:01,590 --> 00:59:04,170
+can plug it into your laptop or
+desktop or really any device.
+
+1271
+00:59:04,170 --> 00:59:06,045
+And it's a really
+convenient way, ultimately,
+
+1272
+00:59:06,045 --> 00:59:08,800
+just like moving files back
+and forth between each other.
+
+1273
+00:59:08,800 --> 00:59:09,300
+All right.
+
+1274
+00:59:09,300 --> 00:59:10,710
+Well, Dr. Ogden, thank you so much.
+
+1275
+00:59:10,710 --> 00:59:13,918
+I'm sure you're going to want to take
+care of putting this all back together.
+
+1276
+00:59:13,918 --> 00:59:16,130
+And this was hardware.
+
+1277
+00:59:16,130 --> 00:00:00,000
+
+
